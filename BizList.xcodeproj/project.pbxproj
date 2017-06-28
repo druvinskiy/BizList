@@ -14,6 +14,7 @@
 		B8BC3EA81F04418D00186FF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8BC3EA61F04418D00186FF5 /* LaunchScreen.storyboard */; };
 		B8BC3EB31F04418D00186FF5 /* BizListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BC3EB21F04418D00186FF5 /* BizListTests.swift */; };
 		B8BC3EBE1F04418D00186FF5 /* BizListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BC3EBD1F04418D00186FF5 /* BizListUITests.swift */; };
+		B8BC3ECC1F044B5800186FF5 /* FilteredBusinessesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BC3ECB1F044B5800186FF5 /* FilteredBusinessesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		B8BC3EB91F04418D00186FF5 /* BizListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BizListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8BC3EBD1F04418D00186FF5 /* BizListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BizListUITests.swift; sourceTree = "<group>"; };
 		B8BC3EBF1F04418D00186FF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8BC3ECB1F044B5800186FF5 /* FilteredBusinessesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilteredBusinessesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				B8BC3E9D1F04418D00186FF5 /* AppDelegate.swift */,
 				B8BC3E9F1F04418D00186FF5 /* ViewController.swift */,
+				B8BC3ECB1F044B5800186FF5 /* FilteredBusinessesViewController.swift */,
 				B8BC3EA11F04418D00186FF5 /* Main.storyboard */,
 				B8BC3EA41F04418D00186FF5 /* Assets.xcassets */,
 				B8BC3EA61F04418D00186FF5 /* LaunchScreen.storyboard */,
@@ -193,6 +196,7 @@
 				TargetAttributes = {
 					B8BC3E991F04418D00186FF5 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 7T5K9UZ754;
 						ProvisioningStyle = Automatic;
 					};
 					B8BC3EAD1F04418D00186FF5 = {
@@ -260,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8BC3EA01F04418D00186FF5 /* ViewController.swift in Sources */,
+				B8BC3ECC1F044B5800186FF5 /* FilteredBusinessesViewController.swift in Sources */,
 				B8BC3E9E1F04418D00186FF5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -410,11 +415,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7T5K9UZ754;
 				INFOPLIST_FILE = BizList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = David.BizList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -422,11 +429,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7T5K9UZ754;
 				INFOPLIST_FILE = BizList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = David.BizList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
