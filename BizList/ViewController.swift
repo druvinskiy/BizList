@@ -28,6 +28,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var tasks:[String] = ["Cleaning", "Sorting", "Stocking", "Facing", "Food Service", "Delivery", "Building", "Laundry", "Greeting", "Sales", "Packaging", "Pricing", "Recycling", "Supervision"]
     
+    var bizPhone:[String] = ["847-224-5631","Unavailable","Unavailable","847-368-74000","847-413-9200","Unavailable","244-512-2600","Unavialable","847-259-1919","847-437-3393","HAHAHAHAHAHAHAHAHAHAHA","Unavailable","Unavailable","800-244-5631","847-473-5450","847-991-0505","847-215-8500","847-520-4466","Unavailabe","Unavailable","HOT DOUG'S!"]
+    
     var selection = ""
     var currentArray:[String] = []
     var mainArray:[String] = []
