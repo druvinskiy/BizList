@@ -516,6 +516,7 @@
 				B8BC3EC41F04418D00186FF5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B8BC3EC51F04418D00186FF5 /* Build configuration list for PBXNativeTarget "BizListTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +525,7 @@
 				B8BC3EC71F04418D00186FF5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B8BC3EC81F04418D00186FF5 /* Build configuration list for PBXNativeTarget "BizListUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +534,7 @@
 				B8BC3ECA1F04418D00186FF5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
