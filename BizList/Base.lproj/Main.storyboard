@@ -30,7 +30,7 @@
                                         <rect key="frame" x="0.0" y="28" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8U6-pA-QcD" id="Axz-nO-1q9">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -114,7 +114,7 @@
                                         <rect key="frame" x="0.0" y="28" width="765" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7QS-3j-pIb" id="1zd-Gl-ZFz">
-                                            <rect key="frame" x="0.0" y="0.0" width="765" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="765" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -150,8 +150,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eT7-U8-sre">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eT7-U8-sre">
                                 <rect key="frame" x="233" y="213" width="302" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Lorum Ipsum" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="KpU-EI-Qjx">
                                 <rect key="frame" x="133" y="148" width="502" height="57"/>
@@ -183,12 +184,6 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="eT7-U8-sre" firstAttribute="leading" secondItem="EQe-wx-AoE" secondAttribute="leadingMargin" constant="213" id="0Uc-Vn-qob"/>
-                            <constraint firstItem="eT7-U8-sre" firstAttribute="top" secondItem="XuD-QD-rov" secondAttribute="bottom" constant="149" id="1H7-in-Dez"/>
-                            <constraint firstItem="2NN-vO-rcP" firstAttribute="top" secondItem="eT7-U8-sre" secondAttribute="bottom" constant="683" id="JGE-dw-MXd"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="eT7-U8-sre" secondAttribute="trailing" constant="213" id="hJe-Q7-myX"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="bizLogo" destination="eT7-U8-sre" id="ifk-xo-Hxp"/>
@@ -204,7 +199,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="FalseImage" width="16" height="16"/>
+        <image name="FalseImage" width="225" height="225"/>
         <image name="Favorite Button" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
