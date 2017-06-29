@@ -20,7 +20,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var bizTasks:[String] = ["Cleaning, Food Service, Laundry, Recycling", "Cleaning, Sorting, Stocking, Food Service, Building, Facing, Recycling", "Cleaning, Stocking, Sales", "Delivery, Greeting, Sorting, Cleaning, Recycling", "Cleaning, Food Service, Sales", "Cleaning, Sorting, Stocking", "Cleaning, Sorting, Stocking, Packaging, Delivery", "Cleaning, Sorting, Stocking, Packaging", "Cleaning", "Cleaning, Sorting, Facing", "Cleaning", "Packaging, Building, Sorting", "Cleaning, Stocking, Sales", "Sorting", "Delivery, Cleaning, Stocking, Recycling, Food Prep", "Cleaning, Supervision", "Stocking, Cleaning, Sales", "Cleaning, Greeting, Supervision", "Cleaning, Packaging, Sorting, Stocking, Facing", "Cleaning, Packaging, Sorting, Stocking, Facing", "Laundry, Cleaning, Stocking"]
     
-    var bizAddresses:[String] = []
+    var bizAddresses:[String] = ["50 N Martingale Rd.","Unavailable","Unavailable","800 W Oakton St.","1550 E Golf Rd.","Unavailable","67 E Algonquin Rd.","Unavailable","1601 W Campbell St.","53 S Arlington Heights Rd.","THIS BUISNESS DOES NOT EXIST","Unavailable","Unavailable","723 W Algonquin Rd.","800 Biesterfield","1900 N Rand Rd.","740 W Hintz Rd.","404 S Elmhurst Rd.","Unavailable","Unavailable","HOT DOUG'S!"]
     
     var locations:[String] = ["Mount Prospect", "Rolling Meadows", "Arlington Heights", "Wheeling", "Buffalo Grove", "Elk Grove", "Des Plaines", "Palatine", "Schaumburg"]
     
