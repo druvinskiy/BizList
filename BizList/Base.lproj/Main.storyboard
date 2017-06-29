@@ -52,7 +52,7 @@
                     <navigationItem key="navigationItem" id="rlb-Mz-mIL">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="IoO-rT-xFx">
-                            <rect key="frame" x="181" y="7" width="407" height="30"/>
+                            <rect key="frame" x="180.5" y="7" width="407" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="All"/>
@@ -190,7 +190,7 @@
                                 <attributedString key="attributedText">
                                     <fragment content="Label">
                                         <attributes>
-                                            <font key="NSFont" size="36" name="AmericanTypewriter"/>
+                                            <font key="NSFont" size="34" name="AmericanTypewriter"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -226,7 +226,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eqv-R7-aTr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2727.34375" y="312.890625"/>
+            <point key="canvasLocation" x="2725" y="306"/>
         </scene>
     </scenes>
     <resources>
@@ -234,6 +234,6 @@
         <image name="favorite button" width="97" height="37"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hON-Wr-Hod"/>
+        <segue reference="FIq-b8-DTf"/>
     </inferredMetricsTieBreakers>
 </document>
