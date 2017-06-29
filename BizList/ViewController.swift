@@ -12,7 +12,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     @IBOutlet weak var tableView: UITableView!
     
-    var bizNames:[String] = ["Marriott", "IKEA", "Walgreens", "Lutheran Home", "California Pizza Kitchen", "Rolling Meadows Library", "Willow Creek Food Pantry", "Northwest Compass", "Fitness 19" ,"Elk Grove Bowling Alley", "High-5 Printwear", "Search, Inc", "Jiminez Grocery Store", "IDES", "Alexian Brothers Medical Center", "Doggie Playhouse", "Family Video", "Poko Loko Early Learning Center", "TJ Maxx", "Marshalls", "Day's Inn"]
+    var bizNames:[String] = ["Marriott", "IKEA", "Walgreens", "Lutheran Home", "California Pizza Kitchen", "Rolling Meadows Library", "Willow Creek Food Pantry", "Northwest Compass", "Fitness 19" ,"Elk Grove Bowling Alley", "High-5 Printwear", "Search, Inc", "Jimenez Grocery Store", "IDES", "Alexian Brothers Medical Center", "Doggie Playhouse", "Family Video", "Poko Loko Early Learning Center", "TJ Maxx", "Marshalls", "Day's Inn"]
     
     var bizLocations:[String] = ["Schaumburg", "Schaumburg", "Arlington Heights, Rolling Meadows", "Arlington Heights", "Schaumburg", "Rolling Meadows", "South Barrington", "Mount Prospect", "Rolling Meadows", "Elk Grove Village", "Arlington Heights", "Mount Prospect", "Wheeling", "Arlington Heights", "Elk Grove Village", "Palatine", "Arlington Heights", "Wheeling", "Mount Prospect", "Arlington Heights", "Arlington Heights"]
     
@@ -121,7 +121,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if (!goingToProfile) {
             let filteredBusinesses:FilteredBusinessesViewController = segue.destination as! FilteredBusinessesViewController
             filteredBusinesses.currentArray = sendArray
-            print("here")
+        }
+        else {
+            let profile:ProfilleViewController = segue.destination as! ProfilleViewController
+            profile.bizName = selection
         }
     }
 }
