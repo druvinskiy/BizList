@@ -14,7 +14,6 @@ class FilteredBusinessesViewController: UIViewController, UITableViewDataSource,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print(currentArray)
         
         // Do any additional setup after loading the view.
     }
@@ -48,7 +47,7 @@ class FilteredBusinessesViewController: UIViewController, UITableViewDataSource,
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //selection = currentArray[indexPath.row]
-        //performSegue(withIdentifier: "showSchedule", sender: self)
+        performSegue(withIdentifier: "showProfile", sender: self)
     }
     
     

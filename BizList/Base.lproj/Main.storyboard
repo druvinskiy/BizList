@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -67,6 +68,7 @@
                     <connections>
                         <outlet property="tableView" destination="jUf-ZC-Ra8" id="amd-Wh-htC"/>
                         <segue destination="Omr-ur-aah" kind="show" identifier="showFilteredBusinesses" id="QlN-ff-Nzb"/>
+                        <segue destination="F2z-Cn-s63" kind="show" identifier="showProfile" id="hON-Wr-Hod"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z0b-ej-pAk" sceneMemberID="firstResponder"/>
@@ -128,10 +130,84 @@
                     <navigationItem key="navigationItem" id="xuS-0a-DkR">
                         <nil key="title"/>
                     </navigationItem>
+                    <connections>
+                        <segue destination="F2z-Cn-s63" kind="show" identifier="showProfile" id="FIq-b8-DTf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h4v-SM-6TH" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1925" y="313"/>
         </scene>
+        <!--Profille View Controller-->
+        <scene sceneID="emX-OD-g2D">
+            <objects>
+                <viewController id="F2z-Cn-s63" customClass="ProfilleViewController" customModule="BizList" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XuD-QD-rov"/>
+                        <viewControllerLayoutGuide type="bottom" id="2NN-vO-rcP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EQe-wx-AoE">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eT7-U8-sre">
+                                <rect key="frame" x="233" y="213" width="302" height="128"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Lorum Ipsum" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="KpU-EI-Qjx">
+                                <rect key="frame" x="133" y="148" width="502" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="29"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="DGI-uN-VzZ">
+                                <rect key="frame" x="86" y="452" width="240" height="504"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Placeholder Incorperated is a company and oh what a company it is! Placeholder offers so many amazing services to customers, and more imprtantly, oppertunities for students. At Placeholder, your student will learn what "Lorum Ipsum dolar sit amet" means, how to create preposterously long placeholders, and how to generate placeholder images and a variety of other placeholding talents! At placeholder, our motto is Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FalseImage" translatesAutoresizingMaskIntoConstraints="NO" id="ah8-75-Iff">
+                                <rect key="frame" x="441" y="452" width="240" height="240"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FalseImage" translatesAutoresizingMaskIntoConstraints="NO" id="j66-SE-9wB">
+                                <rect key="frame" x="441" y="723" width="240" height="240"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="erq-BX-632">
+                                <rect key="frame" x="600" y="98" width="99" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="Favorite Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="eT7-U8-sre" firstAttribute="leading" secondItem="EQe-wx-AoE" secondAttribute="leadingMargin" constant="213" id="0Uc-Vn-qob"/>
+                            <constraint firstItem="eT7-U8-sre" firstAttribute="top" secondItem="XuD-QD-rov" secondAttribute="bottom" constant="149" id="1H7-in-Dez"/>
+                            <constraint firstItem="2NN-vO-rcP" firstAttribute="top" secondItem="eT7-U8-sre" secondAttribute="bottom" constant="683" id="JGE-dw-MXd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eT7-U8-sre" secondAttribute="trailing" constant="213" id="hJe-Q7-myX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bizLogo" destination="eT7-U8-sre" id="ifk-xo-Hxp"/>
+                        <outlet property="bizNameTextField" destination="KpU-EI-Qjx" id="tvA-Wf-UL1"/>
+                        <outlet property="descriptionTextView" destination="DGI-uN-VzZ" id="ea5-Rn-SC4"/>
+                        <outlet property="imageOne" destination="ah8-75-Iff" id="BMQ-j5-fhA"/>
+                        <outlet property="imageTwo" destination="j66-SE-9wB" id="4ZN-rf-yn4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Eqv-R7-aTr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2728" y="313"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="FalseImage" width="16" height="16"/>
+        <image name="Favorite Button" width="16" height="16"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="hON-Wr-Hod"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -16,7 +16,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var bizLocations:[String] = ["Schaumburg", "Schaumburg", "Arlington Heights, Rolling Meadows", "Arlington Heights", "Schaumburg", "Rolling Meadows", "South Barrington", "Mount Prospect", "Rolling Meadows", "Elk Grove Village", "Arlington Heights", "Mount Prospect", "Wheeling", "Arlington Heights", "Elk Grove Village", "Palatine", "Arlington Heights", "Wheeling", "Mount Prospect", "Arlington Heights", "Arlington Heights"]
     
-    var bizIndLevel:[String] = ["Tier 2", "Tier 2", "Tier 1", "Tier 2", "Tier 1", "Tier 1", "Tier 2", "Tier 1", "Tier 1", "Tier 1","Tier 1", "Tier 1", "Tier 1", "Tier 1", "Tier 1", "Tier 1", "Tier 1", "Tier 1", "Tier 2", "Tier 2", "Tier 2" ]
+    var bizIndLevel:[String] = ["Tier 2", "Tier 2", "Tier 1", "Tier 2", "Tier 1", "Tier 1", "Tier 2", "Tier 1", "Tier 1", "Tier 1","Tier 1", "Tier 1", "Tier 1", "Tier 1", "Tier 1", "Tier 1", "Tier 1", "Tier 1", "Tier 2", "Tier 2", "Tier 2"]
     
     var bizTasks:[String] = ["Cleaning, Food Service, Laundry, Recycling", "Cleaning, Sorting, Stocking, Food Service, Building, Facing, Recycling", "Cleaning, Stocking, Sales", "Delivery, Greeting, Sorting, Cleaning, Recycling", "Cleaning, Food Service, Sales", "Cleaning, Sorting, Stocking", "Cleaning, Sorting, Stocking, Packaging, Delivery", "Cleaning, Sorting, Stocking, Packaging", "Cleaning", "Cleaning, Sorting, Facing", "Cleaning", "Packaging, Building, Sorting", "Cleaning, Stocking, Sales", "Sorting", "Delivery, Cleaning, Stocking, Recycling, Food Prep", "Cleaning, Supervision", "Stocking, Cleaning, Sales", "Cleaning, Greeting, Supervision", "Cleaning, Packaging, Sorting, Stocking, Facing", "Cleaning, Packaging, Sorting, Stocking, Facing", "Laundry, Cleaning, Stocking"]
     
@@ -31,6 +31,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var mainArray:[String] = []
     var arrayName = ""
     var sendArray:[String] = []
+    var goingToProfile = true
     
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {
         let index:Int = sender.selectedSegmentIndex
@@ -60,6 +61,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         currentArray = bizNames
         mainArray = bizNames
+        goingToProfile = true;
         
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -98,25 +100,27 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         sendArray.removeAll()
         
         if (mainArray == bizNames) {
-            sendArray.append(bizNames[mainArray.index(of: selection)!])
+            performSegue(withIdentifier: "showProfile", sender: self)
+            goingToProfile = true;
         }
         else {
             for i in 0 ..< mainArray.count {
-                print(mainArray[i].range(of: selection) != nil)
                 if mainArray[i].range(of:selection) != nil {
-                    print(mainArray[i] + " " + selection)
                     sendArray.append(bizNames[i])
-                    print(bizNames[i])
                 }
             }
+            
+            goingToProfile = false;
+            performSegue(withIdentifier: "showFilteredBusinesses", sender: self)
         }
-        
-        performSegue(withIdentifier: "showFilteredBusinesses", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let filteredBusinesses:FilteredBusinessesViewController = segue.destination as! FilteredBusinessesViewController
-        filteredBusinesses.currentArray = sendArray
+        if (!goingToProfile) {
+            let filteredBusinesses:FilteredBusinessesViewController = segue.destination as! FilteredBusinessesViewController
+            filteredBusinesses.currentArray = sendArray
+            print("here")
+        }
     }
 }
 
