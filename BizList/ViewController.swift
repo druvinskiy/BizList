@@ -22,11 +22,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var bizAddresses:[String] = ["50 N Martingale Rd.","Unavailable","Unavailable","800 W Oakton St.","1550 E Golf Rd.","Unavailable","67 E Algonquin Rd.","Unavailable","1601 W Campbell St.","53 S Arlington Heights Rd.","THIS BUISNESS DOES NOT EXIST","Unavailable","Unavailable","723 W Algonquin Rd.","800 Biesterfield","1900 N Rand Rd.","740 W Hintz Rd.","404 S Elmhurst Rd.","Unavailable","Unavailable","HOT DOUG'S!"]
     
-    var locations:[String] = ["Mount Prospect", "Rolling Meadows", "Arlington Heights", "Wheeling", "Buffalo Grove", "Elk Grove", "Des Plaines", "Palatine", "Schaumburg"]
+    var locations:[String] = ["Mount Prospect", "Rolling Meadows", "Arlington Heights", "Wheeling", "Elk Grove", "Des Plaines", "Palatine", "Schaumburg"]
     
     var indLevel:[String] = ["Tier 1", "Tier 2"]
     
-    var tasks:[String] = ["Cleaning", "Sorting", "Stocking", "Facing", "Food Service", "Delivery", "Building", "Laundry", "Greeting", "Sales", "Packaging", "Pricing", "Recycling", "Supervision"]
+    var tasks:[String] = ["Cleaning", "Sorting", "Stocking", "Facing", "Food Service", "Delivery", "Building", "Laundry", "Greeting", "Sales", "Packaging", "Pricing", "Recycling", "Supervision", "Food Prep"]
     
     var bizPhone:[String] = ["847-224-5631","Unavailable","Unavailable","847-368-74000","847-413-9200","Unavailable","244-512-2600","Unavialable","847-259-1919","847-437-3393","HAHAHAHAHAHAHAHAHAHAHA","Unavailable","Unavailable","800-244-5631","847-473-5450","847-991-0505","847-215-8500","847-520-4466","Unavailabe","Unavailable","HOT DOUG'S!"]
     
@@ -43,18 +43,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if (index == 0) {
             currentArray = bizNames
             mainArray = bizNames
+            goingToProfile = true;
         }
         else if (index == 1) {
             currentArray = locations
             mainArray = bizLocations
+            goingToProfile = false;
         }
         else if (index == 2) {
             currentArray = indLevel
             mainArray = bizIndLevel
+            goingToProfile = false;
         }
         else {
             currentArray = tasks
             mainArray = bizTasks
+            goingToProfile = false;
         }
         
         self.tableView.reloadData()
@@ -105,7 +109,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         if (mainArray == bizNames) {
             performSegue(withIdentifier: "showProfile", sender: self)
-            goingToProfile = true;
         }
         else {
             for i in 0 ..< mainArray.count {
@@ -114,7 +117,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 }
             }
             
-            goingToProfile = false;
             performSegue(withIdentifier: "showFilteredBusinesses", sender: self)
         }
     }

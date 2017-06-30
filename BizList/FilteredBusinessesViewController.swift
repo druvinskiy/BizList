@@ -11,6 +11,7 @@ import UIKit
 class FilteredBusinessesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var currentArray:[String] = []
+    var selection = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,8 +47,15 @@ class FilteredBusinessesViewController: UIViewController, UITableViewDataSource,
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //selection = currentArray[indexPath.row]
+        let cell = tableView.cellForRow(at: indexPath)! as UITableViewCell
+        selection = (cell.textLabel?.text)!
+        
         performSegue(withIdentifier: "showProfile", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let profile:ProfilleViewController = segue.destination as! ProfilleViewController
+        profile.bizName = selection
     }
     
     
