@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hIe-bh-6kw">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hIe-bh-6kw">
     <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,7 +30,7 @@
                                         <rect key="frame" x="0.0" y="28" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8U6-pA-QcD" id="Axz-nO-1q9">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -113,7 +113,7 @@
                                         <rect key="frame" x="0.0" y="28" width="765" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7QS-3j-pIb" id="1zd-Gl-ZFz">
-                                            <rect key="frame" x="0.0" y="0.0" width="765" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="765" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -155,16 +155,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="DGI-uN-VzZ">
-                                <rect key="frame" x="86" y="452" width="240" height="504"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="iyI-jw-5R0"/>
-                                </constraints>
-                                <string key="text">Placeholder Incorperated is a company and oh what a company it is! Placeholder offers so many amazing services to customers, and more imprtantly, oppertunities for students. At Placeholder, your student will learn what "Lorum Ipsum dolar sit amet" means, how to create preposterously long placeholders, and how to generate placeholder images and a variety of other placeholding talents! At placeholder, our motto is Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FalseImage" translatesAutoresizingMaskIntoConstraints="NO" id="ah8-75-Iff">
                                 <rect key="frame" x="441" y="452" width="240" height="240"/>
                                 <constraints>
@@ -174,6 +164,9 @@
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FalseImage" translatesAutoresizingMaskIntoConstraints="NO" id="j66-SE-9wB">
                                 <rect key="frame" x="441" y="723" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="bmn-lH-unc"/>
+                                </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="erq-BX-632">
                                 <rect key="frame" x="600" y="98" width="99" height="37"/>
@@ -203,6 +196,27 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Adress" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kwk-eh-sIM">
+                                <rect key="frame" x="80" y="495" width="341" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Independence" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nzF-sl-eVt">
+                                <rect key="frame" x="80" y="577" width="110" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tasks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ie-vB-Yy8">
+                                <rect key="frame" x="80" y="639" width="87" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -216,22 +230,21 @@
                             <constraint firstAttribute="trailingMargin" secondItem="ah8-75-Iff" secondAttribute="trailing" constant="67" id="Sye-al-xbV"/>
                             <constraint firstItem="c9t-fs-W6Q" firstAttribute="leading" secondItem="EQe-wx-AoE" secondAttribute="leadingMargin" constant="88" id="Tom-ex-1tN"/>
                             <constraint firstItem="eT7-U8-sre" firstAttribute="top" secondItem="EQe-wx-AoE" secondAttribute="top" constant="213" id="Vwj-N3-Lmk"/>
-                            <constraint firstItem="2NN-vO-rcP" firstAttribute="top" secondItem="DGI-uN-VzZ" secondAttribute="bottom" constant="68" id="WJV-Ov-tAt"/>
                             <constraint firstItem="2NN-vO-rcP" firstAttribute="top" secondItem="j66-SE-9wB" secondAttribute="bottom" constant="61" id="aFQ-iL-M3h"/>
-                            <constraint firstItem="DGI-uN-VzZ" firstAttribute="leading" secondItem="EQe-wx-AoE" secondAttribute="leadingMargin" constant="66" id="v1U-qp-us2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="erq-BX-632" secondAttribute="trailing" constant="49" id="w5E-ug-7CD"/>
                             <constraint firstItem="eT7-U8-sre" firstAttribute="leading" secondItem="EQe-wx-AoE" secondAttribute="leadingMargin" constant="97" id="wHa-3w-sCJ"/>
-                            <constraint firstItem="DGI-uN-VzZ" firstAttribute="top" secondItem="ah8-75-Iff" secondAttribute="top" id="wPV-zO-r7j"/>
                             <constraint firstItem="erq-BX-632" firstAttribute="top" secondItem="XuD-QD-rov" secondAttribute="bottom" constant="34" id="y2c-w6-uK8"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="adressLabel" destination="kwk-eh-sIM" id="cxQ-ic-nOb"/>
                         <outlet property="bizLogo" destination="eT7-U8-sre" id="ifk-xo-Hxp"/>
                         <outlet property="bizNameLabel" destination="c9t-fs-W6Q" id="AWl-am-1jf"/>
-                        <outlet property="descriptionTextView" destination="DGI-uN-VzZ" id="ea5-Rn-SC4"/>
                         <outlet property="favoriteButton" destination="erq-BX-632" id="JE4-8t-lXj"/>
                         <outlet property="imageOne" destination="ah8-75-Iff" id="BMQ-j5-fhA"/>
                         <outlet property="imageTwo" destination="j66-SE-9wB" id="4ZN-rf-yn4"/>
+                        <outlet property="indLabel" destination="nzF-sl-eVt" id="6kV-C3-BEg"/>
+                        <outlet property="taskLabel" destination="5Ie-vB-Yy8" id="CsF-5z-5ar"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eqv-R7-aTr" userLabel="First Responder" sceneMemberID="firstResponder"/>
