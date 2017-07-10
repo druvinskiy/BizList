@@ -7,6 +7,8 @@
 //
 
 import UIKit
+ 
+var favorites:[String] = []
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -40,25 +42,30 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {
         let index:Int = sender.selectedSegmentIndex
         
-        if (index == 0) {
+        if index == 0 {
             currentArray = bizNames
             mainArray = bizNames
             goingToProfile = true;
         }
-        else if (index == 1) {
+        else if index == 1 {
             currentArray = locations
             mainArray = bizLocations
             goingToProfile = false;
         }
-        else if (index == 2) {
+        else if index == 2 {
             currentArray = indLevel
             mainArray = bizIndLevel
             goingToProfile = false;
         }
-        else {
+        else if index == 3 {
             currentArray = tasks
             mainArray = bizTasks
             goingToProfile = false;
+        }
+        else {
+            currentArray = favorites
+            mainArray = favorites
+            goingToProfile = true
         }
         
         self.tableView.reloadData()
@@ -107,7 +114,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         selection = (cell.textLabel?.text)!
         sendArray.removeAll()
         
-        if (mainArray == bizNames) {
+        if (mainArray == bizNames || mainArray == favorites) {
             performSegue(withIdentifier: "showProfile", sender: self)
         }
         else {
