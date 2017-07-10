@@ -23,13 +23,17 @@ class ProfilleViewController: UIViewController {
     
     var bizName = "";
     var bizAddress = "";
+    var indLvl = "";
+    var tasks = "";
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
         bizLogo.image = UIImage(named: bizName)
         bizNameLabel.text = bizName
-        adressLabel.text="adderess: \(bizAddress)"
+        adressLabel.text = "Adderess: \(bizAddress)"
+        indLabel.text = "Independence Level: \(indLvl)"
+        taskLabel.text = "Tasks: \(tasks)"
     
             }
     
