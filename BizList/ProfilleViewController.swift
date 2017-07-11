@@ -42,7 +42,7 @@ class ProfilleViewController: UIViewController {
         }
         if  favorites.contains(bizName){
             favButt.setImage(UIImage(named: "Unfavorite Button"), for: UIControlState.normal)
-            favButt.setImage(UIImage(named: "Unfvorite Depressed"), for: UIControlState.highlighted)
+            favButt.setImage(UIImage(named: "Unfavorite Depressed"), for: UIControlState.highlighted)
         }
     }
     
@@ -50,7 +50,7 @@ class ProfilleViewController: UIViewController {
         if !favorites.contains(bizName) {
             favorites.append(bizName)
             self.favButt.setImage(UIImage(named: "Unfavorite Button"), for: UIControlState.normal)
-            self.favButt.setImage(UIImage(named: "Unfvorite Depressed"), for: UIControlState.highlighted)
+            self.favButt.setImage(UIImage(named: "Unfavorite Depressed"), for: UIControlState.highlighted)
 
         }
        
