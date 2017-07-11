@@ -22,7 +22,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var bizTasks:[String] = ["Cleaning, Food Service, Laundry, Recycling", "Cleaning, Sorting, Stocking, Food Service, Building, Facing, Recycling", "Cleaning, Stocking, Sales", "Delivery, Greeting, Sorting, Cleaning, Recycling", "Cleaning, Food Service, Sales", "Cleaning, Sorting, Stocking", "Cleaning, Sorting, Stocking, Packaging, Delivery", "Cleaning, Sorting, Stocking, Packaging", "Cleaning", "Cleaning, Sorting, Facing", "Cleaning", "Packaging, Building, Sorting", "Cleaning, Stocking, Sales", "Sorting", "Delivery, Cleaning, Stocking, Recycling, Food Prep", "Cleaning, Supervision", "Stocking, Cleaning, Sales", "Cleaning, Greeting, Supervision", "Cleaning, Packaging, Sorting, Stocking, Facing", "Cleaning, Packaging, Sorting, Stocking, Facing", "Laundry, Cleaning, Stocking"]
     
-    var bizAddresses:[String] = ["50 N Martingale Rd.","Unavailable","Unavailable","800 W Oakton St.","1550 E Golf Rd.","Unavailable","67 E Algonquin Rd.","Unavailable","1601 W Campbell St.","53 S Arlington Heights Rd.","THIS BUISNESS DOES NOT EXIST","Unavailable","Unavailable","723 W Algonquin Rd.","800 Biesterfield","1900 N Rand Rd.","740 W Hintz Rd.","404 S Elmhurst Rd.","Unavailable","Unavailable","HOT DOUG'S!"]
+    var bizAddresses:[String] = ["50 N Martingale Rd.","Unavailable","Unavailable","800 W Oakton St.","1550 E Golf Rd.","3110 Martin Ln.","67 E Algonquin Rd.","Unavailable","1601 W Campbell St.","53 S Arlington Heights Rd.","THIS BUISNESS DOES NOT EXIST","Unavailable","Unavailable","723 W Algonquin Rd.","800 Biesterfield","1900 N Rand Rd.","740 W Hintz Rd.","404 S Elmhurst Rd.","Unavailable","Unavailable","Unavailable"]
     
     var locations:[String] = ["Mount Prospect", "Rolling Meadows", "Arlington Heights", "Wheeling", "Elk Grove", "Des Plaines", "Palatine", "Schaumburg"]
     
@@ -30,7 +30,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var tasks:[String] = ["Cleaning", "Sorting", "Stocking", "Facing", "Food Service", "Delivery", "Building", "Laundry", "Greeting", "Sales", "Packaging", "Pricing", "Recycling", "Supervision", "Food Prep"]
     
-    var bizPhone:[String] = ["847-224-5631","Unavailable","Unavailable","847-368-74000","847-413-9200","Unavailable","244-512-2600","Unavialable","847-259-1919","847-437-3393","HAHAHAHAHAHAHAHAHAHAHA","Unavailable","Unavailable","800-244-5631","847-473-5450","847-991-0505","847-215-8500","847-520-4466","Unavailabe","Unavailable","HOT DOUG'S!"]
+    var bizPhone:[String] = ["847-224-5631","Unavailable","Unavailable","847-368-74000","847-413-9200","847- 259-6050","244-512-2600","Unavialable","847-259-1919","847-437-3393","Unavailable","Unavailable","Unavailable","800-244-5631","847-473-5450","847-991-0505","847-215-8500","847-520-4466","Unavailabe","Unavailable","Unavialable"]
     
     var selection = ""
     var currentArray:[String] = []
