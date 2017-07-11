@@ -137,6 +137,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             let profile:ProfilleViewController = segue.destination as! ProfilleViewController
             profile.bizName = selection
             profile.bizAddress = bizAddresses[bizNames.index(of: selection)!]
+            print(profile.bizAddress)
             profile.indLvl = bizIndLevel[bizNames.index(of: selection)!]
             profile.tasks = bizTasks[bizNames.index(of: selection)!]
         }

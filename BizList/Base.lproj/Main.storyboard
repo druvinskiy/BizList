@@ -254,12 +254,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addressTextView" destination="Tew-w4-pOj" id="m2u-4M-Mx6"/>
                         <outlet property="bizLogo" destination="eT7-U8-sre" id="ifk-xo-Hxp"/>
                         <outlet property="bizNameLabel" destination="c9t-fs-W6Q" id="AWl-am-1jf"/>
                         <outlet property="favoriteButton" destination="erq-BX-632" id="JE4-8t-lXj"/>
                         <outlet property="imageOne" destination="ah8-75-Iff" id="BMQ-j5-fhA"/>
                         <outlet property="imageTwo" destination="j66-SE-9wB" id="4ZN-rf-yn4"/>
-                        <outlet property="indTextView" destination="Tew-w4-pOj" id="wup-Si-sRz"/>
+                        <outlet property="indTextView" destination="38H-pW-mh6" id="vyP-wD-Ho8"/>
                         <outlet property="tasksTextView" destination="XGx-rv-DKm" id="5o8-cv-Y0P"/>
                     </connections>
                 </viewController>

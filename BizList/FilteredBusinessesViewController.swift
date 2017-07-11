@@ -56,7 +56,7 @@ class FilteredBusinessesViewController: UIViewController, UITableViewDataSource,
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let profile:ProfilleViewController = segue.destination as! ProfilleViewController
         profile.bizName = selection
-           }
+    }
     
     
     /*
