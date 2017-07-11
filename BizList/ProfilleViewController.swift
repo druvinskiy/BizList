@@ -12,12 +12,10 @@ class ProfilleViewController: UIViewController {
 
     @IBOutlet weak var bizLogo: UIImageView!
     @IBOutlet weak var bizNameLabel: UILabel!
-    @IBOutlet weak var adressLabel: UILabel!
-    @IBOutlet weak var indLabel: UILabel!
-    @IBOutlet weak var taskLabel: UILabel!
-   
+    @IBOutlet weak var addressTextView: UITextView!
+    @IBOutlet weak var indTextView: UITextView!
+    @IBOutlet weak var tasksTextView: UITextView!
     @IBOutlet weak var favoriteButton: UIButton!
-    
     @IBOutlet weak var imageOne: UIImageView!
     @IBOutlet weak var imageTwo: UIImageView!
     
@@ -31,11 +29,10 @@ class ProfilleViewController: UIViewController {
         self.view.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
         bizLogo.image = UIImage(named: bizName)
         bizNameLabel.text = bizName
-        adressLabel.text = "Adderess: \(bizAddress)"
-        indLabel.text = "Independence Level: \(indLvl)"
-        taskLabel.text = "Tasks: \(tasks)"
-    
-            }
+        addressTextView.text = "Adderess: \(bizAddress)"
+        indTextView.text = "Independence Level: \(indLvl)"
+        tasksTextView.text = "Tasks: \(tasks)"
+    }
     
     
     @IBAction func onFavoriteButtonTapped(_ sender: UIButton) {
