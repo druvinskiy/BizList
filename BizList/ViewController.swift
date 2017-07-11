@@ -14,15 +14,50 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     @IBOutlet weak var tableView: UITableView!
     
-    var bizNames:[String] = ["Marriott", "IKEA", "Walgreens", "Lutheran Home", "California Pizza Kitchen", "Rolling Meadows Library", "Willow Creek Food Pantry", "Northwest Compass", "Fitness 19" ,"Elk Grove Bowling Alley", "High-5 Printwear", "Search, Inc", "Jimenez Grocery Store", "IDES", "Alexian Brothers Medical Center", "Doggie Playhouse", "Family Video", "Poko Loko Early Learning Center", "TJ Maxx", "Marshalls", "Day's Inn"]
+    var bizNames:[String] = ["Marriott", "IKEA", "Walgreens", "Lutheran Home", "California Pizza Kitchen", "Rolling Meadows Library", "Willow Creek Food Pantry", "Northwest Compass", "Fitness 19" ,"Elk Grove Bowling Alley", "High-5 Printwear", "Search, Inc", "Jimenez Grocery Store", "IDES", "Alexian Brothers Medical Center", "Doggie Playhouse", "Family Video", "Poko Loko Early Learning Center", "TJ Maxx", "Marshalls"]
     
-    var bizLocations:[String] = ["Schaumburg", "Schaumburg", "Arlington Heights, Rolling Meadows", "Arlington Heights", "Schaumburg", "Rolling Meadows", "South Barrington", "Mount Prospect", "Rolling Meadows", "Elk Grove Village", "Arlington Heights", "Mount Prospect", "Wheeling", "Arlington Heights", "Elk Grove Village", "Palatine", "Arlington Heights", "Wheeling", "Mount Prospect", "Arlington Heights", "Arlington Heights"]
+    var bizLocations:[String] = ["Schaumburg",
+                                 "Schaumburg",
+                                 "Arlington Heights, Arlington Heights, Prospect Heights, Buffalo Grove, Wheeling",
+                                 "Arlington Heights",
+                                 "Schaumburg",
+                                 "Rolling Meadows",
+                                 "South Barrington",
+                                 "Mount Prospect",
+                                 "Rolling Meadows",
+                                 "Elk Grove Village",
+                                 "Arlington Heights", "Mount Prospect",
+                                 "Wheeling",
+                                 "Arlington Heights",
+                                 "Elk Grove Village", "Palatine",
+                                 "Arlington Heights",
+                                 "Wheeling",
+                                 "Mount Prospect",
+                                 "Arlington Heights, Schamburg"]
     
-    var bizIndLevel:[String] = ["Tier 2", "Tier 2", "Tier 1", "Tier 2", "Tier 1", "Tier 1", "Tier 2", "Tier 1", "Tier 1", "Tier 1","Tier 1", "Tier 1", "Tier 1", "Tier 1", "Tier 1", "Tier 1", "Tier 1", "Tier 1", "Tier 2", "Tier 2", "Tier 2"]
+    var bizIndLevel:[String] = ["Tier 2", "Tier 2", "Tier 1", "Tier 2", "Tier 1", "Tier 1", "Tier 2", "Tier 1", "Tier 1", "Tier 1","Tier 1", "Tier 1", "Tier 1", "Tier 1", "Tier 2", "Tier 1", "Tier 1", "Tier 1", "Tier 2", "Tier 2, Tier 1"]
     
-    var bizTasks:[String] = ["Cleaning, Food Service, Laundry, Recycling", "Cleaning, Sorting, Stocking, Food Service, Building, Facing, Recycling", "Cleaning, Stocking, Sales", "Delivery, Greeting, Sorting, Cleaning, Recycling", "Cleaning, Food Service, Sales", "Cleaning, Sorting, Stocking", "Cleaning, Sorting, Stocking, Packaging, Delivery", "Cleaning, Sorting, Stocking, Packaging", "Cleaning", "Cleaning, Sorting, Facing", "Cleaning", "Packaging, Building, Sorting", "Cleaning, Stocking, Sales", "Sorting", "Delivery, Cleaning, Stocking, Recycling, Food Prep", "Cleaning, Supervision", "Stocking, Cleaning, Sales", "Cleaning, Greeting, Supervision", "Cleaning, Packaging, Sorting, Stocking, Facing", "Cleaning, Packaging, Sorting, Stocking, Facing", "Laundry, Cleaning, Stocking"]
+    var bizTasks:[String] = ["Cleaning, Food Service, Laundry, Recycling", "Cleaning, Sorting, Stocking, Food Service, Building, Facing, Recycling", "Cleaning, Stocking, Sales", "Delivery, Greeting, Sorting, Cleaning, Recycling", "Cleaning, Food Service, Sales", "Cleaning, Sorting, Stocking", "Cleaning, Sorting, Stocking, Packaging, Delivery", "Cleaning, Sorting, Stocking, Packaging", "Cleaning", "Cleaning, Sorting, Facing", "Cleaning", "Packaging, Building, Sorting", "Cleaning, Stocking, Sales", "Sorting", "Delivery, Cleaning, Stocking, Recycling, Food Prep", "Cleaning, Supervision", "Stocking, Cleaning, Sales", "Cleaning, Greeting, Supervision", "Cleaning, Packaging, Sorting, Stocking, Facing", "Cleaning, Packaging, Sorting, Stocking, Facing"]
     
-    var bizAddresses:[String] = ["50 N Martingale Rd.","Unavailable","Unavailable","800 W Oakton St.","1550 E Golf Rd.","3110 Martin Ln.","67 E Algonquin Rd.","Unavailable","1601 W Campbell St.","53 S Arlington Heights Rd.","Unavailable","Unavailable","Unavailable","723 W Algonquin Rd.","800 Biesterfield","1900 N Rand Rd.","740 W Hintz Rd.","404 S Elmhurst Rd.","Unavailable","Unavailable","1415 W Dundee Rd"]
+    var bizAddresses:[String] = ["50 N Martingale Rd.",
+                                 "Unavailable",
+                                 "1711 W. Campbell St., 3 E. Golf Road, 1 N. Elmhurst Road, 15 N. Buffalo Grove Road, 1199 W. Dundee Road",
+                                 "800 W Oakton St.",
+                                 "1550 E Golf Rd.","3110 Martin Ln.",
+                                 "67 E Algonquin Rd.",
+                                 "Unavailable",
+                                 "1601 W Campbell St.",
+                                 "53 S Arlington Heights Rd.",
+                                 "Unavailable",
+                                 "Unavailable",
+                                 "Unavailable",
+                                 "723 W Algonquin Rd.",
+                                 "800 Biesterfield",
+                                 "1900 N Rand Rd.",
+                                 "740 W Hintz Rd.",
+                                 "404 S Elmhurst Rd.",
+                                 "Unavailable",
+                                 "601 East Palatine Rd, 1488 East Golf Rd"]
     
     var locations:[String] = ["Mount Prospect", "Rolling Meadows", "Arlington Heights", "Wheeling", "Elk Grove", "Des Plaines", "Palatine", "Schaumburg"]
     
