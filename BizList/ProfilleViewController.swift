@@ -19,10 +19,11 @@ class ProfilleViewController: UIViewController {
     @IBOutlet weak var imageOne: UIImageView!
     @IBOutlet weak var imageTwo: UIImageView!
     
-    var bizName = "";
-    var bizAddress = "";
-    var indLvl = "";
-    var tasks = "";
+    var bizName = ""
+    var bizAddress = ""
+    var indLvl = ""
+    var tasks = ""
+    var bizCity = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
