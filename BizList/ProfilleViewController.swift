@@ -23,7 +23,6 @@ class ProfilleViewController: UIViewController {
     var bizAddress = "";
     var indLvl = "";
     var tasks = "";
-    //Change
     
     override func viewDidLoad() {
         super.viewDidLoad()
