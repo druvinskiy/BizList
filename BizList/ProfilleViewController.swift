@@ -18,12 +18,14 @@ class ProfilleViewController: UIViewController {
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var imageOne: UIImageView!
     @IBOutlet weak var imageTwo: UIImageView!
+    @IBOutlet weak var favButt: UIButton!
     
     var bizName = ""
     var bizAddress = ""
     var indLvl = ""
     var tasks = ""
     var bizCity = ""
+    let clickImg = UIImage(named: "Favorite Button")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +35,15 @@ class ProfilleViewController: UIViewController {
         createAddresses()
         indTextView.text = "Independence Level: \(indLvl)"
         tasksTextView.text = "Tasks: \(tasks)"
+        
+        if !favorites.contains(bizName){
+            favButt.setImage(UIImage(named: "Favorite Button"), for: UIControlState.normal)
+            favButt.setImage(UIImage(named: "Favorite Depressed"), for: UIControlState.highlighted)
+        }
+        if  favorites.contains(bizName){
+            favButt.setImage(UIImage(named: "Unfavorite Button"), for: UIControlState.normal)
+            favButt.setImage(UIImage(named: "Unfavorite Depressed"), for: UIControlState.highlighted)
+        }
     }
     
     func createAddresses() {
@@ -52,22 +63,19 @@ class ProfilleViewController: UIViewController {
     @IBAction func onFavoriteButtonTapped(_ sender: UIButton) {
         if !favorites.contains(bizName) {
             favorites.append(bizName)
+            self.favButt.setImage(UIImage(named: "Unfavorite Button"), for: UIControlState.normal)
+            self.favButt.setImage(UIImage(named: "Unfavorite Depressed"), for: UIControlState.highlighted)
+
         }
+       
+        else{
+            favorites.remove(at: favorites.index(of: bizName)!)
+            self.favButt.setImage(UIImage(named: "Favorite Button"), for: UIControlState.normal)
+            self.favButt.setImage(UIImage(named: "Favorite Depressed"), for: UIControlState.highlighted)
+        }
+           }
     }
+
+
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-}
+

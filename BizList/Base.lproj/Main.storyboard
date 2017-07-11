@@ -157,11 +157,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="erq-BX-632">
-                                <rect key="frame" x="600" y="98" width="99" height="37"/>
+                                <rect key="frame" x="600" y="98" width="99" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="99" id="m7a-m3-sXZ"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="favorite button"/>
+                                <state key="normal" title="Button" image="Favorite Button"/>
                                 <connections>
                                     <action selector="onFavoriteButtonTapped:" destination="F2z-Cn-s63" eventType="touchUpInside" id="Jk3-vv-TD2"/>
                                 </connections>
@@ -260,6 +260,7 @@
                         <outlet property="addressTextView" destination="Tew-w4-pOj" id="m2u-4M-Mx6"/>
                         <outlet property="bizLogo" destination="eT7-U8-sre" id="ifk-xo-Hxp"/>
                         <outlet property="bizNameLabel" destination="c9t-fs-W6Q" id="AWl-am-1jf"/>
+                        <outlet property="favButt" destination="erq-BX-632" id="3cR-MV-Abx"/>
                         <outlet property="favoriteButton" destination="erq-BX-632" id="JE4-8t-lXj"/>
                         <outlet property="imageOne" destination="ah8-75-Iff" id="BMQ-j5-fhA"/>
                         <outlet property="imageTwo" destination="j66-SE-9wB" id="4ZN-rf-yn4"/>
@@ -274,7 +275,7 @@
     </scenes>
     <resources>
         <image name="FalseImage" width="225" height="225"/>
-        <image name="favorite button" width="97" height="37"/>
+        <image name="Favorite Button" width="136" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="FIq-b8-DTf"/>
