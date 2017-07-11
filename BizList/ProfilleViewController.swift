@@ -19,18 +19,18 @@ class ProfilleViewController: UIViewController {
     @IBOutlet weak var imageOne: UIImageView!
     @IBOutlet weak var imageTwo: UIImageView!
     
-    var bizName = "";
-    var bizAddress = "";
-    var indLvl = "";
-    var tasks = "";
-    //Change
+    var bizName = ""
+    var bizAddress = ""
+    var indLvl = ""
+    var tasks = ""
+    var bizCity = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
         bizLogo.image = UIImage(named: bizName)
         bizNameLabel.text = bizName
-        addressTextView.text = "Adderess: \(bizAddress)"
+        addressTextView.text = "Adderess: \(bizAddress) \(bizCity)"
         indTextView.text = "Independence Level: \(indLvl)"
         tasksTextView.text = "Tasks: \(tasks)"
     }
