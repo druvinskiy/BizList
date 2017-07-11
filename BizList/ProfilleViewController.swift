@@ -30,9 +30,22 @@ class ProfilleViewController: UIViewController {
         self.view.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
         bizLogo.image = UIImage(named: bizName)
         bizNameLabel.text = bizName
-        addressTextView.text = "Adderess: \(bizAddress) \(bizCity)"
+        createAddresses()
         indTextView.text = "Independence Level: \(indLvl)"
         tasksTextView.text = "Tasks: \(tasks)"
+    }
+    
+    func createAddresses() {
+        let addresses = bizAddress.components(separatedBy: ", ")
+        bizAddress = addressTextView.text
+        
+        let cities = bizCity.components(separatedBy: ", ")
+        
+        for address in addresses {
+            bizAddress = "\(bizAddress)\n\n\(address) \(cities[addresses.index(of: address)!])\n"
+        }
+        
+        addressTextView.text = bizAddress
     }
     
     
