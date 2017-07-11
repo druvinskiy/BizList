@@ -29,7 +29,7 @@ class ProfilleViewController: UIViewController {
         self.view.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
         bizLogo.image = UIImage(named: bizName)
         bizNameLabel.text = bizName
-        addressTextView.text = "Adderess: \(bizAddress)"
+        addressTextView.text = "Adderess: \(bizAddress) \(bizCity)"
         indTextView.text = "Independence Level: \(indLvl)"
         tasksTextView.text = "Tasks: \(tasks)"
     }
