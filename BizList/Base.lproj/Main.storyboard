@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hIe-bh-6kw">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hIe-bh-6kw">
     <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,7 +30,7 @@
                                         <rect key="frame" x="0.0" y="28" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8U6-pA-QcD" id="Axz-nO-1q9">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -52,7 +52,7 @@
                     <navigationItem key="navigationItem" id="rlb-Mz-mIL">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="IoO-rT-xFx">
-                            <rect key="frame" x="130" y="7" width="509" height="30"/>
+                            <rect key="frame" x="129.5" y="7" width="509" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="All"/>
@@ -114,7 +114,7 @@
                                         <rect key="frame" x="0.0" y="28" width="765" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7QS-3j-pIb" id="1zd-Gl-ZFz">
-                                            <rect key="frame" x="0.0" y="0.0" width="765" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="765" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -157,11 +157,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="erq-BX-632">
-                                <rect key="frame" x="600" y="98" width="99" height="48"/>
+                                <rect key="frame" x="637" y="84" width="99" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="99" id="m7a-m3-sXZ"/>
+                                    <constraint firstAttribute="width" constant="99" id="pPM-Cw-IEo"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="favorite button"/>
+                                <state key="normal" title="Button" image="Favorite Button"/>
                                 <connections>
                                     <action selector="onFavoriteButtonTapped:" destination="F2z-Cn-s63" eventType="touchUpInside" id="Jk3-vv-TD2"/>
                                 </connections>
@@ -247,13 +247,13 @@
                             <constraint firstItem="eT7-U8-sre" firstAttribute="top" secondItem="EQe-wx-AoE" secondAttribute="top" constant="182" id="Vwj-N3-Lmk"/>
                             <constraint firstItem="XGx-rv-DKm" firstAttribute="trailing" secondItem="Tew-w4-pOj" secondAttribute="trailing" id="ZSI-6A-nlm"/>
                             <constraint firstItem="2NN-vO-rcP" firstAttribute="top" secondItem="j66-SE-9wB" secondAttribute="bottom" constant="131" id="aFQ-iL-M3h"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="erq-BX-632" secondAttribute="trailing" constant="12" id="li3-Hf-21x"/>
                             <constraint firstItem="Tew-w4-pOj" firstAttribute="leading" secondItem="eT7-U8-sre" secondAttribute="leading" id="mFk-13-qJa"/>
                             <constraint firstItem="Tew-w4-pOj" firstAttribute="top" secondItem="ah8-75-Iff" secondAttribute="top" constant="-64" id="mfD-fQ-pB4"/>
                             <constraint firstItem="XGx-rv-DKm" firstAttribute="leading" secondItem="Tew-w4-pOj" secondAttribute="leading" id="qn6-Ot-Jfe"/>
+                            <constraint firstItem="erq-BX-632" firstAttribute="top" secondItem="XuD-QD-rov" secondAttribute="bottom" constant="20" id="tIU-JW-Pg7"/>
                             <constraint firstItem="38H-pW-mh6" firstAttribute="top" secondItem="Tew-w4-pOj" secondAttribute="bottom" constant="19" id="tRe-ca-wpF"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="erq-BX-632" secondAttribute="trailing" constant="49" id="w5E-ug-7CD"/>
                             <constraint firstItem="eT7-U8-sre" firstAttribute="leading" secondItem="EQe-wx-AoE" secondAttribute="leadingMargin" constant="97" id="wHa-3w-sCJ"/>
-                            <constraint firstItem="erq-BX-632" firstAttribute="top" secondItem="XuD-QD-rov" secondAttribute="bottom" constant="34" id="y2c-w6-uK8"/>
                         </constraints>
                     </view>
                     <connections>
@@ -275,9 +275,9 @@
     </scenes>
     <resources>
         <image name="FalseImage" width="225" height="225"/>
-        <image name="favorite button" width="136" height="48"/>
+        <image name="Favorite Button" width="136" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FIq-b8-DTf"/>
+        <segue reference="hON-Wr-Hod"/>
     </inferredMetricsTieBreakers>
 </document>
