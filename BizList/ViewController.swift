@@ -167,6 +167,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             profile.bizCity = bizLocations[bizNames.index(of: selection)!]
             profile.indLvl = bizIndLevel[bizNames.index(of: selection)!]
             profile.tasks = bizTasks[bizNames.index(of: selection)!]
+            profile.bizZips = bizZip[bizNames.index(of: selection)!]
         }
     }
 }

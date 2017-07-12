@@ -25,14 +25,15 @@ class ProfilleViewController: UIViewController {
     var indLvl = ""
     var tasks = ""
     var bizCity = ""
-    let clickImg = UIImage(named: "Favorite Button")
+    var bizZips = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
+        createAddresses()
         bizLogo.image = UIImage(named: bizName)
         bizNameLabel.text = bizName
-        createAddresses()
+        //addressTextView.text = "Address: \(bizAddress), \(bizCity) \(bizZips)"
         indTextView.text = "Independence Level: \(indLvl)"
         tasksTextView.text = "Tasks: \(tasks)"
         
@@ -50,15 +51,19 @@ class ProfilleViewController: UIViewController {
         let addresses = bizAddress.components(separatedBy: ", ")
         bizAddress = addressTextView.text
         
+        let zips = bizZips.components(separatedBy: ", ")
+        
         let cities = bizCity.components(separatedBy: ", ")
         
         for address in addresses {
-            bizAddress = "\(bizAddress)\n\n\(address) \(cities[addresses.index(of: address)!])\n"
+            bizAddress = "\(bizAddress)\n\n\(address), \(cities[addresses.index(of: address)!]), IL \(zips[addresses.index(of: address)!])\n"
         }
+        
+        
         
         addressTextView.text = bizAddress
     }
-    
+ 
     
     @IBAction func onFavoriteButtonTapped(_ sender: UIButton) {
         if !favorites.contains(bizName) {
