@@ -57,6 +57,4 @@ class FilteredBusinessesViewController: UIViewController, UITableViewDataSource,
         let profile:ProfilleViewController = segue.destination as! ProfilleViewController
         profile.bizName = selection
     }
-    
-    
-    }
+}

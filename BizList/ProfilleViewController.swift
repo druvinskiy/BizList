@@ -67,15 +67,10 @@ class ProfilleViewController: UIViewController {
             self.favButt.setImage(UIImage(named: "Unfavorite Depressed"), for: UIControlState.highlighted)
 
         }
-       
-        else{
+        else {
             favorites.remove(at: favorites.index(of: bizName)!)
             self.favButt.setImage(UIImage(named: "Favorite Button"), for: UIControlState.normal)
             self.favButt.setImage(UIImage(named: "Favorite Depressed"), for: UIControlState.highlighted)
         }
-           }
     }
-
-
-    
-
+}
