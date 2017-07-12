@@ -33,7 +33,6 @@ class ProfilleViewController: UIViewController {
         createAddresses()
         bizLogo.image = UIImage(named: bizName)
         bizNameLabel.text = bizName
-        //addressTextView.text = "Address: \(bizAddress), \(bizCity) \(bizZips)"
         indTextView.text = "Independence Level: \(indLvl)"
         tasksTextView.text = "Tasks: \(tasks)"
         
@@ -58,8 +57,6 @@ class ProfilleViewController: UIViewController {
         for address in addresses {
             bizAddress = "\(bizAddress)\n\n\(address), \(cities[addresses.index(of: address)!]), IL \(zips[addresses.index(of: address)!])\n"
         }
-        
-        
         
         addressTextView.text = bizAddress
     }

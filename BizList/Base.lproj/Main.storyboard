@@ -62,7 +62,7 @@
                                 <segment title="Favorites"/>
                             </segments>
                             <connections>
-                                <action selector="segmentChanged:" destination="mwv-1N-C4h" eventType="valueChanged" id="hS2-sz-Gkn"/>
+                                <action selector="segmentChanged:" destination="mwv-1N-C4h" eventType="valueChanged" id="vMj-Fa-y0B"/>
                             </connections>
                         </segmentedControl>
                     </navigationItem>
