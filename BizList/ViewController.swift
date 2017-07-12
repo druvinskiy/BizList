@@ -1,7 +1,7 @@
 //
 //  ViewController.swift
 //  BizList
-//
+//  Devin is Great
 //  Created by David Ruvinskiy on 6/28/17.
 //  Copyright © 2017 David Ruvinskiy. All rights reserved.
 //
