@@ -228,7 +228,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Phone Number:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FHc-qU-a4S">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" editable="NO" text="Phone Number:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FHc-qU-a4S">
                                 <rect key="frame" x="117" y="675" width="240" height="88"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
