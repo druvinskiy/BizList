@@ -15,6 +15,7 @@ class ProfilleViewController: UIViewController {
     @IBOutlet weak var addressTextView: UITextView!
     @IBOutlet weak var indTextView: UITextView!
     @IBOutlet weak var tasksTextView: UITextView!
+    @IBOutlet weak var phoneTextView: UITextView!
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var imageOne: UIImageView!
     @IBOutlet weak var imageTwo: UIImageView!
@@ -26,6 +27,7 @@ class ProfilleViewController: UIViewController {
     var bizTasks = ""
     var bizCity = ""
     var bizZip = ""
+    var bizPhone = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +36,7 @@ class ProfilleViewController: UIViewController {
         
         bizNameLabel.text = bizName
         createAddresses()
-        
+        phoneTextView.text = "Phone Number:\(bizPhone)"
         indTextView.text = "Independence Level: \(bizIndLvl)"
         tasksTextView.text = "Tasks: \(bizTasks)"
         

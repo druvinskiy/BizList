@@ -59,5 +59,6 @@ class FilteredBusinessesViewController: UIViewController, UITableViewDataSource,
         profile.bizZip = bizZips[bizNames.index(of: selection)!]
         profile.bizIndLvl = bizIndLevel[bizNames.index(of: selection)!]
         profile.bizTasks = bizTasks[bizNames.index(of: selection)!]
+        profile.bizPhone = bizPhone[bizNames.index(of: selection)!]
     }
 }
