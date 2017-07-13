@@ -9,6 +9,7 @@
 import UIKit
  
 var favorites:[String] = []
+var currentArray:[String] = []
 
 var bizNames:[String] = ["Marriott",
                          "IKEA",
@@ -69,7 +70,7 @@ var bizIndLevel:[String] = ["Tier 2",
                             "Tier 1",
                             "Tier 1",
                             "Tier 2",
-                            "Tier 2,Tier 1"]
+                            "Tier 2, Tier 1"]
 
 var bizTasks:[String] = ["Cleaning, Food Service, Laundry, Recycling",
                          "Cleaning, Sorting, Stocking, Food Service, Building, Facing, Recycling",
@@ -133,7 +134,7 @@ var bizPhone:[String] = ["847-224-5631",
                          "847-870-1453",
                          "847-240-0295, 847-577-9177"]
 
-var bizZip:[String] = ["60173",
+var bizZips:[String] = ["60173",
                        "60173",
                        "60005, 60005, 60070, 60089, 60090",
                        "60004",
@@ -158,14 +159,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     @IBOutlet weak var tableView: UITableView!
     
-    var locations:[String] = ["Mount Prospect", "Rolling Meadows", "Arlington Heights", "Wheeling", "Elk Grove", "Des Plaines", "Palatine", "Schaumburg"]
+    var locations:[String] = ["Mount Prospect", "Rolling Meadows", "Arlington Heights", "Wheeling", "Elk Grove", "Palatine", "Schaumburg", "Prospect Heights", "Buffalo Grove", "South Barrington", "Elk Grove Village", "Schamburg"]
     
     var indLevel:[String] = ["Tier 1", "Tier 2"]
     
     var tasks:[String] = ["Cleaning", "Sorting", "Stocking", "Facing", "Food Service", "Delivery", "Building", "Laundry", "Greeting", "Sales", "Packaging", "Pricing", "Recycling", "Supervision", "Food Prep"]
 
     var selection = ""
-    var currentArray:[String] = []
     var mainArray:[String] = []
     var arrayName = ""
     var sendArray:[String] = []
@@ -190,6 +190,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             mainArray = bizTasks
         }
         else {
+            let defaults = UserDefaults.standard
+            let token = defaults.object(forKey: "MyKey") as? [String]
+            
+            favorites = token!
             currentArray = favorites
             mainArray = favorites
         }
@@ -202,7 +206,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         currentArray = bizNames
         mainArray = bizNames
         
+        let notificationNme = NSNotification.Name("NotificationIdf")
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.reloadTableview), name: notificationNme, object: nil)
+        
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    func reloadTableview() {
+        self.tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -238,7 +249,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         selection = (cell.textLabel?.text)!
         sendArray.removeAll()
         
-        if (mainArray == bizNames || mainArray == favorites) {
+        if bizNames.contains(selection) {
             performSegue(withIdentifier: "showProfile", sender: self)
         }
         else {
@@ -262,10 +273,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             profile.bizName = selection
             profile.bizAddress = bizAddresses[bizNames.index(of: selection)!]
             profile.bizCity = bizLocations[bizNames.index(of: selection)!]
-            profile.indLvl = bizIndLevel[bizNames.index(of: selection)!]
-            profile.tasks = bizTasks[bizNames.index(of: selection)!]
-            profile.bizZips = bizZip[bizNames.index(of: selection)!]
+            profile.bizZip = bizZips[bizNames.index(of: selection)!]
+            profile.bizIndLvl = bizIndLevel[bizNames.index(of: selection)!]
+            profile.bizTasks = bizTasks[bizNames.index(of: selection)!]
         }
     }
 }
-

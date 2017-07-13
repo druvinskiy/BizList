@@ -25,8 +25,6 @@ class FilteredBusinessesViewController: UIViewController, UITableViewDataSource,
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        tableView.backgroundColor = UIColor(red: 0.93333, green: 0.93333, blue: 0.93333, alpha: 1)
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel!.text = currentArray[indexPath.row]
         
@@ -58,7 +56,8 @@ class FilteredBusinessesViewController: UIViewController, UITableViewDataSource,
         profile.bizName = selection
         profile.bizAddress = bizAddresses[bizNames.index(of: selection)!]
         profile.bizCity = bizLocations[bizNames.index(of: selection)!]
-        profile.indLvl = bizIndLevel[bizNames.index(of: selection)!]
-        profile.tasks = bizTasks[bizNames.index(of: selection)!]
+        profile.bizZip = bizZips[bizNames.index(of: selection)!]
+        profile.bizIndLvl = bizIndLevel[bizNames.index(of: selection)!]
+        profile.bizTasks = bizTasks[bizNames.index(of: selection)!]
     }
 }
