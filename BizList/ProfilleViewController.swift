@@ -61,7 +61,7 @@ class ProfilleViewController: UIViewController {
             let city = cities[index!]
             let zip = zips[index!]
             
-            bizAddress = "\(bizAddress)\n\n\(address), \(city), IL \(zip)\n"
+            bizAddress = "\(bizAddress)\n\n\(address), \(city), IL \(zip)"
         }
         
         addressTextView.text = bizAddress
