@@ -36,7 +36,8 @@ class ProfilleViewController: UIViewController {
         
         bizNameLabel.text = bizName
         createAddresses()
-        phoneTextView.text = "Phone Number:\(bizPhone)"
+        //phoneTextView.text = "Phone Number:\(bizPhone)"
+        createPhoneNumber()
         indTextView.text = "Independence Level: \(bizIndLvl)"
         tasksTextView.text = "Tasks: \(bizTasks)"
         
@@ -63,10 +64,21 @@ class ProfilleViewController: UIViewController {
             let city = cities[index!]
             let zip = zips[index!]
             
-            bizAddress = "\(bizAddress)\n\n\(address), \(city), IL \(zip)\n"
+            bizAddress = "\(bizAddress)\n\n\(address), \(city), IL \(zip)"
         }
         
         addressTextView.text = bizAddress
+    }
+    
+    func createPhoneNumber() {
+        let phoneNumber = bizPhone.components(separatedBy: ", ")
+        bizPhone = phoneTextView.text
+        for phone in phoneNumber {
+            
+            bizPhone = "\(bizPhone)\n\n\(phone)";
+        }
+        
+        phoneTextView.text = bizPhone
     }
     
     func saveFavorites() {
