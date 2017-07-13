@@ -26,6 +26,7 @@ class ProfilleViewController: UIViewController {
     var bizTasks = ""
     var bizCity = ""
     var bizZip = ""
+    var bizPhone = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
