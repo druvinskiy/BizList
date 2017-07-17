@@ -30,7 +30,14 @@ var bizNames:[String] = ["Marriott",
                          "Family Video",
                          "Poko Loko Early Learning Center",
                          "TJ Maxx",
-                         "Marshalls"]
+                         "Marshalls",
+                         "Flower Garden Day Care",
+                         "Prospect Heights Park District",
+                         "Dakota K's Automotive",
+                         "Animal Feeds and Needs",
+                         "Old Navy",
+                         "Baker's Basket",
+                         "Glamour Hair Salon"]
 
 var bizLocations:[String] = ["Schaumburg",
                              "Schaumburg",
@@ -49,7 +56,14 @@ var bizLocations:[String] = ["Schaumburg",
                              "Arlington Heights",
                              "Wheeling",
                              "Mount Prospect",
-                             "Arlington Heights, Schamburg"]
+                             "Arlington Heights, Schamburg",
+                             "Arlington Heights",
+                             "Prospect Heights",
+                             "Arlington Heights",
+                             "Arlington Heights",
+                             "Schaumburg, Mount Prospect",
+                             "Elk Grove Village",
+                             "Buffalo Grove"]
 
 var bizIndLevel:[String] = ["Tier 2",
                             "Tier 2",
@@ -70,7 +84,14 @@ var bizIndLevel:[String] = ["Tier 2",
                             "Tier 1",
                             "Tier 1",
                             "Tier 2",
-                            "Tier 2, Tier 1"]
+                            "Tier 2, Tier 1",
+                            "Tier 1",
+                            "Tier 1",
+                            "Tier 1",
+                            "Tier 1",
+                            "Tier 1",
+                            "Tier 1",
+                            "Tier 1"]
 
 var bizTasks:[String] = ["Cleaning, Food Service, Laundry, Recycling",
                          "Cleaning, Sorting, Stocking, Food Service, Building, Facing, Recycling",
@@ -90,7 +111,14 @@ var bizTasks:[String] = ["Cleaning, Food Service, Laundry, Recycling",
                          "Stocking, Cleaning, Sales",
                          "Cleaning, Greeting, Supervision",
                          "Cleaning, Packaging, Sorting, Stocking, Facing",
-                         "Cleaning, Packaging, Sorting, Stocking, Facing"]
+                         "Cleaning, Packaging, Sorting, Stocking, Facing",
+                         "Supervision, Cleaning",
+                         "Greeting, Cleaning",
+                         "Stocking, Sorting, Facing, Cleaning",
+                         "Supervision, Stocking Sorting, Facing, Cleaning",
+                         "Stocking, Sorting, Facing, Cleaning, Sales",
+                         "Food Service, Sorting, Cleaning",
+                         "Stocking, Sorting, Facing, Cleaning, Sales, Greeting"]
 
 var bizAddresses:[String] = ["50 N Martingale Rd.",
                              "1800 East McConnor Pkwy",
@@ -111,7 +139,14 @@ var bizAddresses:[String] = ["50 N Martingale Rd.",
                              "740 W Hintz Rd.",
                              "404 S Elmhurst Rd.",
                              "1054 Center Drive",
-                             "601 East Palatine Rd, 1488 East Golf Rd"]
+                             "601 East Palatine Rd, 1488 East Golf Rd",
+                             "2420 E. Rand Rd.",
+                             "110 W. Camp McDonald Rd.",
+                             "3450 Old Arlington Heights Rd.",
+                             "401 W. Golf Rd.",
+                             "1498 Golf Rd, 1015 N. Elmhurst Rd.",
+                             "2420 Elmhurst Rd.",
+                             "60 W. Dundee Rd."]
 
 var bizPhone:[String] = ["847-224-5631",
                          "888-888-4532",
@@ -132,7 +167,14 @@ var bizPhone:[String] = ["847-224-5631",
                          "847-215-8500",
                          "847-520-4466",
                          "847-870-1453",
-                         "847-240-0295, 847-577-9177"]
+                         "847-240-0295, 847-577-9177",
+                         "847-392-8983",
+                         "847-394-2848",
+                         "847-348-8106",
+                         "847-437-4738",
+                         "847-619-1715, 847-870-0373",
+                         "847-595-3524",
+                         "847-520-2210"]
 
 var bizZips:[String] = ["60173",
                        "60173",
@@ -153,7 +195,14 @@ var bizZips:[String] = ["60173",
                        "60090",
                        "60090",
                        "60056",
-                       "60004, 60173"]
+                       "60004, 60173",
+                       "60004",
+                       "60070",
+                       "60004",
+                       "60005",
+                       "60172, 60056",
+                       "60007",
+                       "60089"]
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
