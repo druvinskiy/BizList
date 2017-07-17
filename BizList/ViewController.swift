@@ -33,11 +33,11 @@ var bizNames:[String] = ["Marriott",
                          "Marshalls",
                          "Flower Garden Day Care",
                          "Prospect Heights Park District",
-                         "Dakota K's Automotive",
+                         "Dakota K's Auto Repair",
                          "Animal Feeds and Needs",
                          "Old Navy",
                          "Baker's Basket",
-                         "Glamour Hair Salon"]
+                         "Glamour Salon and Spa"]
 
 var bizLocations:[String] = ["Schaumburg",
                              "Schaumburg",

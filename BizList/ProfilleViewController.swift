@@ -41,13 +41,25 @@ class ProfilleViewController: UIViewController {
         indTextView.text = "Independence Level: \(bizIndLvl)"
         tasksTextView.text = "Tasks: \(bizTasks)"
         
-        imageOne.image = UIImage(named: "\(bizName) Pic 1")
-        imageTwo.image = UIImage(named: "\(bizName) Pic 2")
+        if (UIImage(named: "\(bizName) Pic 1") != nil) {
+            imageOne.image = UIImage(named: "\(bizName) Pic 1")
+        }
+        else {
+            imageOne.image = UIImage(named: "FalseImage")
+        }
+        
+        if (UIImage(named: "\(bizName) Pic 2") != nil) {
+            imageTwo.image = UIImage(named: "\(bizName) Pic 2")
+        }
+        else {
+            imageTwo.image = UIImage(named: "FalseImage")
+        }
         
         if !favorites.contains(bizName){
             favButt.setImage(UIImage(named: "Favorite Button"), for: UIControlState.normal)
             favButt.setImage(UIImage(named: "Favorite Depressed"), for: UIControlState.highlighted)
         }
+        
         if  favorites.contains(bizName){
             favButt.setImage(UIImage(named: "Unfavorite Button"), for: UIControlState.normal)
             favButt.setImage(UIImage(named: "Unfavorite Depressed"), for: UIControlState.highlighted)
