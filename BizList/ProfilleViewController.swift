@@ -33,14 +33,16 @@ class ProfilleViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
         bizLogo.image = UIImage(named: bizName)
-        
         bizNameLabel.text = bizName
+        
         createAddresses()
-        //phoneTextView.text = "Phone Number:\(bizPhone)"
         createPhoneNumber()
+        
         indTextView.text = "Independence Level: \(bizIndLvl)"
         tasksTextView.text = "Tasks: \(bizTasks)"
         
+        imageOne.image = UIImage(named: "\(bizName) Pic 1")
+        imageTwo.image = UIImage(named: "\(bizName) Pic 2")
         
         if !favorites.contains(bizName){
             favButt.setImage(UIImage(named: "Favorite Button"), for: UIControlState.normal)
