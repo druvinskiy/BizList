@@ -20,7 +20,7 @@ var bizNames:[String] = ["Marriott",
                          "Willow Creek Food Pantry",
                          "Northwest Compass",
                          "Fitness 19",
-                         "Elk Grove Bowling Alley",
+                         "Elk Grove Bowl",
                          "High-5 Printwear",
                          "Search, Inc",
                          "Jimenez Grocery Store",
@@ -37,7 +37,9 @@ var bizNames:[String] = ["Marriott",
                          "Animal Feeds and Needs",
                          "Old Navy",
                          "Baker's Basket",
-                         "Glamour Salon and Spa"]
+                         "Glamour Salon and Spa",
+                         "Elk Grove Park District",
+                         "Kindercare"]
 
 var bizLocations:[String] = ["Schaumburg",
                              "Schaumburg",
@@ -63,7 +65,9 @@ var bizLocations:[String] = ["Schaumburg",
                              "Arlington Heights",
                              "Schaumburg, Mount Prospect",
                              "Elk Grove Village",
-                             "Buffalo Grove"]
+                             "Buffalo Grove",
+                             "Elk Grove Village",
+                             "Arlington Heights"]
 
 var bizIndLevel:[String] = ["Tier 2",
                             "Tier 2",
@@ -85,6 +89,8 @@ var bizIndLevel:[String] = ["Tier 2",
                             "Tier 1",
                             "Tier 2",
                             "Tier 2, Tier 1",
+                            "Tier 1",
+                            "Tier 1",
                             "Tier 1",
                             "Tier 1",
                             "Tier 1",
@@ -118,11 +124,13 @@ var bizTasks:[String] = ["Cleaning, Food Service, Laundry, Recycling",
                          "Supervision, Stocking Sorting, Facing, Cleaning",
                          "Stocking, Sorting, Facing, Cleaning, Sales",
                          "Food Service, Sorting, Cleaning",
-                         "Stocking, Sorting, Facing, Cleaning, Sales, Greeting"]
+                         "Stocking, Sorting, Facing, Cleaning, Sales, Greeting",
+                         "Cleaning, Greeting",
+                         "Supervision, Cleaning, Greeting"]
 
 var bizAddresses:[String] = ["50 N Martingale Rd.",
                              "1800 East McConnor Pkwy",
-                             "1711 W. Campbell St., 3 E. Golf Road, 1 N. Elmhurst Road, 15 N. Buffalo Grove Road, 1199 W. Dundee Road",
+                             "1711 W. Campbell St., 3 E. Golf Rd., 1 N. Elmhurst Rd., 15 N. Buffalo Grove Rd., 1199 W. Dundee Rd.",
                              "800 W Oakton St.",
                              "1550 E Golf Rd., 3 S. Evergreen Ave.",
                              "3 S. Evergreen Ave.",
@@ -146,7 +154,9 @@ var bizAddresses:[String] = ["50 N Martingale Rd.",
                              "401 W. Golf Rd.",
                              "1498 Golf Rd, 1015 N. Elmhurst Rd.",
                              "2420 Elmhurst Rd.",
-                             "60 W. Dundee Rd."]
+                             "60 W. Dundee Rd.",
+                             "1000 Wellington Ave",
+                             "800 S. Arlington Heights Rd."]
 
 var bizPhone:[String] = ["847-224-5631",
                          "888-888-4532",
@@ -174,7 +184,9 @@ var bizPhone:[String] = ["847-224-5631",
                          "847-437-4738",
                          "847-619-1715, 847-870-0373",
                          "847-595-3524",
-                         "847-520-2210"]
+                         "847-520-2210",
+                         "847-437-9494",
+                         "847-956-7123"]
 
 var bizZips:[String] = ["60173",
                        "60173",
@@ -202,13 +214,15 @@ var bizZips:[String] = ["60173",
                        "60005",
                        "60172, 60056",
                        "60007",
-                       "60089"]
+                       "60089",
+                       "60007",
+                       "60005"]
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var locations:[String] = ["Mount Prospect", "Rolling Meadows", "Arlington Heights", "Wheeling", "Elk Grove", "Palatine", "Schaumburg", "Prospect Heights", "Buffalo Grove", "South Barrington", "Elk Grove Village", "Schamburg"]
+    var locations:[String] = ["Mount Prospect", "Rolling Meadows", "Arlington Heights", "Wheeling", "Palatine", "Schaumburg", "Prospect Heights", "Buffalo Grove", "South Barrington", "Elk Grove Village", "Schamburg"]
     
     var indLevel:[String] = ["Tier 1", "Tier 2"]
     
@@ -243,7 +257,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             let defaults = UserDefaults.standard
             let token = defaults.object(forKey: "MyKey") as? [String]
             
-            favorites = token!
+            if token != nil {
+                favorites = token!
+            }
+            
             currentArray = favorites
             mainArray = favorites
         }
