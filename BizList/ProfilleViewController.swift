@@ -37,8 +37,8 @@ class ProfilleViewController: UIViewController {
         
         createAddresses()
         createPhoneNumber()
+        createTier()
         
-        indTextView.text = "Independence Level: \(bizIndLvl)"
         tasksTextView.text = "Tasks: \(bizTasks)"
         
         if (UIImage(named: "\(bizName) Pic 1") != nil) {
@@ -87,12 +87,23 @@ class ProfilleViewController: UIViewController {
     func createPhoneNumber() {
         let phoneNumber = bizPhone.components(separatedBy: ", ")
         bizPhone = phoneTextView.text
+        
         for phone in phoneNumber {
-            
-            bizPhone = "\(bizPhone)\n\n\(phone)";
+            bizPhone = "\(bizPhone)\n\n\(phone)"
         }
         
         phoneTextView.text = bizPhone
+    }
+    
+    func createTier() {
+        let tiers = bizIndLvl.components(separatedBy: ", ")
+        bizIndLvl = indTextView.text
+        
+        for tier in tiers {
+            bizIndLvl = "\(bizIndLvl)\n\n\(tier)";
+        }
+        
+        indTextView.text = bizIndLvl
     }
     
     func saveFavorites() {

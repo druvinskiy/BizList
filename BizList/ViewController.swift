@@ -39,7 +39,10 @@ var bizNames:[String] = ["Marriott",
                          "Baker's Basket",
                          "Glamour Salon and Spa",
                          "Elk Grove Park District",
-                         "Kindercare"]
+                         "Kindercare",
+                         "Arlington Dog House",
+                         "Oberweis Ice Cream and Dairy Store",
+                         "Hello Anime"]
 
 var bizLocations:[String] = ["Schaumburg",
                              "Schaumburg",
@@ -67,7 +70,10 @@ var bizLocations:[String] = ["Schaumburg",
                              "Elk Grove Village",
                              "Buffalo Grove",
                              "Elk Grove Village",
-                             "Arlington Heights"]
+                             "Arlington Heights",
+                             "Arlington Heights",
+                             "Arlington Heights",
+                             "Schaumburg"]
 
 var bizIndLevel:[String] = ["Tier 2",
                             "Tier 2",
@@ -89,6 +95,9 @@ var bizIndLevel:[String] = ["Tier 2",
                             "Tier 1",
                             "Tier 2",
                             "Tier 2, Tier 1",
+                            "Tier 1",
+                            "Tier 1",
+                            "Tier 1",
                             "Tier 1",
                             "Tier 1",
                             "Tier 1",
@@ -119,14 +128,17 @@ var bizTasks:[String] = ["Cleaning, Food Service, Laundry, Recycling",
                          "Cleaning, Packaging, Sorting, Stocking, Facing",
                          "Cleaning, Packaging, Sorting, Stocking, Facing",
                          "Supervision, Cleaning",
-                         "Greeting, Cleaning",
+                         "Greeting, Cleaning, Supervision",
                          "Stocking, Sorting, Facing, Cleaning",
                          "Supervision, Stocking Sorting, Facing, Cleaning",
                          "Stocking, Sorting, Facing, Cleaning, Sales",
                          "Food Service, Sorting, Cleaning",
                          "Stocking, Sorting, Facing, Cleaning, Sales, Greeting",
                          "Cleaning, Greeting",
-                         "Supervision, Cleaning, Greeting"]
+                         "Supervision, Cleaning, Greeting",
+                         "Supervision, Cleaning",
+                         "Food Service, Cleaning, Stocking",
+                         "Cleaning, Stocking, Facing, Packaging"]
 
 var bizAddresses:[String] = ["50 N Martingale Rd.",
                              "1800 East McConnor Pkwy",
@@ -156,7 +168,10 @@ var bizAddresses:[String] = ["50 N Martingale Rd.",
                              "2420 Elmhurst Rd.",
                              "60 W. Dundee Rd.",
                              "1000 Wellington Ave",
-                             "800 S. Arlington Heights Rd."]
+                             "800 S. Arlington Heights Rd.",
+                             "213 S. Arlington Heights Rd.",
+                             "9 W Dundee Rd.",
+                             "D212 Woodfield Mall"]
 
 var bizPhone:[String] = ["847-224-5631",
                          "888-888-4532",
@@ -186,7 +201,10 @@ var bizPhone:[String] = ["847-224-5631",
                          "847-595-3524",
                          "847-520-2210",
                          "847-437-9494",
-                         "847-956-7123"]
+                         "847-956-7123",
+                         "847-398-9663",
+                         "847-368-9060",
+                         "224-520-8526"]
 
 var bizZips:[String] = ["60173",
                        "60173",
@@ -216,7 +234,10 @@ var bizZips:[String] = ["60173",
                        "60007",
                        "60089",
                        "60007",
-                       "60005"]
+                       "60005",
+                       "60005",
+                       "60004",
+                       "60173"]
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
