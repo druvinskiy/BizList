@@ -96,6 +96,9 @@ class ProfilleViewController: UIViewController {
     }
     
     func saveFavorites() {
+        let notificationNme = NSNotification.Name("NotificationIdf")
+        NotificationCenter.default.post(name: notificationNme, object: nil)
+        
         let defaults = UserDefaults.standard
         let token = favorites
         
@@ -105,7 +108,9 @@ class ProfilleViewController: UIViewController {
  
     @IBAction func onFavoriteButtonTapped(_ sender: UIButton) {
         if !favorites.contains(bizName) {
+            
             favorites.append(bizName)
+            
             self.favButt.setImage(UIImage(named: "Unfavorite Button"), for: UIControlState.normal)
             self.favButt.setImage(UIImage(named: "Unfavorite Depressed"), for: UIControlState.highlighted)
             
@@ -115,10 +120,6 @@ class ProfilleViewController: UIViewController {
             let index = favorites.index(of: bizName)
             
             favorites.remove(at: index!)
-            currentArray.remove(at: index!)
-            
-            let notificationNme = NSNotification.Name("NotificationIdf")
-            NotificationCenter.default.post(name: notificationNme, object: nil)
             
             self.favButt.setImage(UIImage(named: "Favorite Button"), for: UIControlState.normal)
             self.favButt.setImage(UIImage(named: "Favorite Depressed"), for: UIControlState.highlighted)

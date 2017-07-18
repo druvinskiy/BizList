@@ -218,9 +218,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var mainArray:[String] = []
     var arrayName = ""
     var sendArray:[String] = []
+    var index = 0
     
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {
-        let index:Int = sender.selectedSegmentIndex
+        index = sender.selectedSegmentIndex
         
         if index == 0 {
             currentArray = bizNames
@@ -254,6 +255,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         currentArray = bizNames
         mainArray = bizNames
+        index = 0
         
         let notificationNme = NSNotification.Name("NotificationIdf")
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.reloadTableview), name: notificationNme, object: nil)
@@ -262,6 +264,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func reloadTableview() {
+        if index == 4 {
+            currentArray = favorites
+        }
+        
         self.tableView.reloadData()
     }
     
