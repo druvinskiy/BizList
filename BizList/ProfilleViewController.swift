@@ -31,7 +31,6 @@ class ProfilleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
         bizLogo.image = UIImage(named: bizName)
         bizNameLabel.text = bizName
         
