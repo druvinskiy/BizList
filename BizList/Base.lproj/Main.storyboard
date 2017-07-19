@@ -62,11 +62,12 @@
                                 <segment title="Favorites"/>
                             </segments>
                             <connections>
-                                <action selector="segmentChanged:" destination="mwv-1N-C4h" eventType="valueChanged" id="vMj-Fa-y0B"/>
+                                <action selector="segmentedControlActionChangedWithSender:" destination="mwv-1N-C4h" eventType="valueChanged" id="wPC-hp-09B"/>
                             </connections>
                         </segmentedControl>
                     </navigationItem>
                     <connections>
+                        <outlet property="segmentedControl" destination="IoO-rT-xFx" id="Iir-eJ-wNi"/>
                         <outlet property="tableView" destination="jUf-ZC-Ra8" id="amd-Wh-htC"/>
                         <segue destination="Omr-ur-aah" kind="show" identifier="showFilteredBusinesses" id="QlN-ff-Nzb"/>
                         <segue destination="F2z-Cn-s63" kind="show" identifier="showProfile" id="hON-Wr-Hod"/>

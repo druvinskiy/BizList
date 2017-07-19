@@ -239,34 +239,41 @@ import UIKit
  "60004",
  "60173"]*/
 
+protocol DataSentDelegate {
+    func userDidEnterData(businesses: [Business])
+}
+
+extension DataSentDelegate {
+    
+}
+
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     var businesses:[Business] = []
     
     var locations:[String] = ["Mount Prospect", "Rolling Meadows", "Arlington Heights", "Wheeling", "Palatine", "Schaumburg", "Prospect Heights", "Buffalo Grove", "South Barrington", "Elk Grove Village", "Schamburg"]
-    
     var tiers:[String] = ["Tier 1", "Tier 2"]
-    
     var tasks:[String] = ["Cleaning", "Sorting", "Stocking", "Facing", "Food Service", "Delivery", "Building", "Laundry", "Greeting", "Sales", "Packaging", "Pricing", "Recycling", "Supervision", "Food Prep"]
-    
     var favorites:[String] = []
     
-    var index = 0
-    
-    var indexToArray: Dictionary<Int, [String]> = [
-        :]
-    
-    @IBAction func segmentChanged(_ sender: UISegmentedControl) {
-        index = sender.selectedSegmentIndex
-        tableView.reloadData()
-    }
+    var delegate:DataSentDelegate? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let marriott = Business(name: "Marriott", locations: ["Schaumburg"], tiers: ["Tier 2"], tasks: ["Cleaning, Food Service, Laundry, Recycling"], addresses: ["50 N Martingale Rd."], phones: ["847-224-5631"], zips: ["60173"], logo: UIImage(named: "FalseImage")!, pic1: UIImage(named: "FalseImage")!, pic2: UIImage(named: "FalseImage")!, isFavorite: false)
+        createBusinesses()
+        
+        let notificationNme = NSNotification.Name("NotificationIdf")
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.reloadTableview), name: notificationNme, object: nil)
+        
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    func createBusinesses() {
+        let marriott = Business(name: "Marriott", locations: ["Schaumburg"], tiers: ["Tier 2"], tasks: ["Cleaning, Food Service, Laundry, Recycling"], addresses: ["50 N Martingale Rd."], phones: ["847-224-5631"], zips: ["60173"], logo: UIImage(named: "Marriott")!, pic1: UIImage(named: "FalseImage")!, pic2: UIImage(named: "FalseImage")!, isFavorite: false)
         
         businesses = [marriott]
         
@@ -277,29 +284,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         locations = locations.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending }
         tiers = tiers.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending }
         tasks = tasks.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending }
-        
-        index = 0
-        
-        let notificationNme = NSNotification.Name("NotificationIdf")
-        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.reloadTableview), name: notificationNme, object: nil)
-        
-        indexToArray = [
-            0 : businesses as! Array<String>,
-            1 : locations,
-            2 : tiers,
-            3 : tasks,
-            4: favorites
-        ]
-        
-        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    @IBAction func segmentedControlActionChanged(sender: AnyObject) {
+        tableView.reloadData()
     }
     
     func reloadTableview() {
-        if index == 4 {
-            //currentArray = favorites
-        }
-        
-        self.tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -310,22 +301,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         tableView.backgroundColor = UIColor(red: 0.93333, green: 0.93333, blue: 0.93333, alpha: 1)
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let business = businesses[indexPath.row]
-        
-        switch index {
-        case 0:
-            cell.textLabel?.text = business.name
-        case 1:
-            cell.textLabel?.text = indexToArray[index]? as! [Array<String> indexPath.row;]
-        case 2:
-            cell.textLabel?.text = indexToArray[index]?[indexPath.row]
-        case 3:
-            cell.textLabel?.text = indexToArray[index]?[indexPath.row]
-        case 4:
-            cell.textLabel?.text = "Favorite"
-        default:
-            cell.textLabel?.text = "Default"
-        }
         
         if (indexPath.row % 2 == 0) {
             cell.backgroundColor = UIColor(red: 0.0549, green: 0.25098, blue:  0.5804, alpha: 1)
@@ -336,52 +311,91 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             cell.textLabel?.textColor = UIColor.white
         }
         
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            cell.textLabel?.text = businesses[indexPath.row].name
+            break
+        case 1:
+            cell.textLabel?.text = locations[indexPath.row]
+            break
+        case 2:
+            cell.textLabel?.text = tiers[indexPath.row]
+            break
+        case 3:
+            cell.textLabel?.text = tasks[indexPath.row]
+            break
+        case 4:
+            cell.textLabel?.text = favorites[indexPath.row]
+            break
+        default:
+            break
+        }
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch index {
+        var returnValue = 0
+        
+        switch segmentedControl.selectedSegmentIndex {
         case 0:
-            return businesses.count
+            returnValue = businesses.count
+            break
         case 1:
-            return
+            returnValue = locations.count
+            break
+        case 2:
+            returnValue = tiers.count
+            break
+        case 3:
+            returnValue = tasks.count
+            break
+        case 4:
+            returnValue = favorites.count
+            break
         default:
-            <#code#>
+            break
         }
+        
+        return returnValue
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath)! as UITableViewCell
-        
-        /*if bizNames.contains(selection) {
-         performSegue(withIdentifier: "showProfile", sender: self)
-         }
-         else {
-         for i in 0 ..< mainArray.count {
-         if mainArray[i].range(of:selection) != nil {
-         sendArray.append(bizNames[i])
-         }
-         }
-         
-         performSegue(withIdentifier: "showFilteredBusinesses", sender: self)
-         }*/
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            performSegue(withIdentifier: "showProfile", sender: self)
+            break
+        case 1:
+            performSegue(withIdentifier: "showFilteredBusinesses", sender: self)
+            break
+        case 2:
+            performSegue(withIdentifier: "showFilteredBusinesses", sender: self)
+            break
+        case 3:
+            performSegue(withIdentifier: "showFilteredBusinesses", sender: self)
+            break
+        case 4:
+            performSegue(withIdentifier: "showProfile", sender: self)
+            break
+        default:
+            break
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        /*if segue.identifier == "showFilteredBusinesses" {
-         let filteredBusinesses:FilteredBusinessesViewController = segue.destination as! FilteredBusinessesViewController
-         filteredBusinesses.currentArray = sendArray
-         }
-         else {
-         let profile:ProfilleViewController = segue.destination as! ProfilleViewController
-         profile.bizName = selection
-         profile.bizAddress = bizAddresses[bizNames.index(of: selection)!]
-         profile.bizCity = bizLocations[bizNames.index(of: selection)!]
-         profile.bizZip = bizZips[bizNames.index(of: selection)!]
-         profile.bizIndLvl = bizIndLevel[bizNames.index(of: selection)!]
-         profile.bizTasks = bizTasks[bizNames.index(of: selection)!]
-         profile.bizPhone = bizPhone[bizNames.index(of: selection)!]
-         }
-         }*/
+        if segue.identifier == "showFilteredBusinesses" {
+            if delegate != nil {
+                let filteredBusinesses:[Business] = []
+                
+                for business in businesses {
+                    
+                }
+                
+                delegate?.userDidEnterData(businesses: filteredBusinesses)
+            }
+        }
+        else {
+            
+        }
     }
 }
