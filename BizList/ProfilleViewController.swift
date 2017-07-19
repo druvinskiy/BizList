@@ -54,7 +54,7 @@ class ProfilleViewController: UIViewController {
             imageTwo.image = UIImage(named: "FalseImage")
         }
         
-        if !favorites.contains(bizName){
+        /*if !favorites.contains(bizName){
             favButt.setImage(UIImage(named: "Favorite Button"), for: UIControlState.normal)
             favButt.setImage(UIImage(named: "Favorite Depressed"), for: UIControlState.highlighted)
         }
@@ -62,7 +62,7 @@ class ProfilleViewController: UIViewController {
         if  favorites.contains(bizName){
             favButt.setImage(UIImage(named: "Unfavorite Button"), for: UIControlState.normal)
             favButt.setImage(UIImage(named: "Unfavorite Depressed"), for: UIControlState.highlighted)
-        }
+        }*/
     }
     
     func createAddresses() {
@@ -110,31 +110,31 @@ class ProfilleViewController: UIViewController {
         NotificationCenter.default.post(name: notificationNme, object: nil)
         
         let defaults = UserDefaults.standard
-        let token = favorites
+        //let token = favorites
         
-        defaults.set(token, forKey: "MyKey")
+        //defaults.set(token, forKey: "MyKey")
         defaults.synchronize()
     }
  
     @IBAction func onFavoriteButtonTapped(_ sender: UIButton) {
-        if !favorites.contains(bizName) {
+        //if !favorites.contains(bizName) {
             
-            favorites.append(bizName)
+            //favorites.append(bizName)
             
             self.favButt.setImage(UIImage(named: "Unfavorite Button"), for: UIControlState.normal)
             self.favButt.setImage(UIImage(named: "Unfavorite Depressed"), for: UIControlState.highlighted)
             
             saveFavorites()
-        }
-        else {
-            let index = favorites.index(of: bizName)
+        //}
+        //else {
+            //let index = favorites.index(of: bizName)
             
-            favorites.remove(at: index!)
+            //favorites.remove(at: index!)
             
             self.favButt.setImage(UIImage(named: "Favorite Button"), for: UIControlState.normal)
             self.favButt.setImage(UIImage(named: "Favorite Depressed"), for: UIControlState.highlighted)
             
             saveFavorites()
-        }
+        //}
     }
 }

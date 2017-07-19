@@ -53,12 +53,12 @@ class FilteredBusinessesViewController: UIViewController, UITableViewDataSource,
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let profile:ProfilleViewController = segue.destination as! ProfilleViewController
-        profile.bizName = selection
+        /*profile.bizName = selection
         profile.bizAddress = bizAddresses[bizNames.index(of: selection)!]
         profile.bizCity = bizLocations[bizNames.index(of: selection)!]
         profile.bizZip = bizZips[bizNames.index(of: selection)!]
         profile.bizIndLvl = bizIndLevel[bizNames.index(of: selection)!]
         profile.bizTasks = bizTasks[bizNames.index(of: selection)!]
-        profile.bizPhone = bizPhone[bizNames.index(of: selection)!]
+        profile.bizPhone = bizPhone[bizNames.index(of: selection)!]*/
     }
 }
