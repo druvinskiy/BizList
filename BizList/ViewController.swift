@@ -239,14 +239,6 @@ import UIKit
  "60004",
  "60173"]*/
 
-protocol DataSentDelegate {
-    func userDidEnterData(businesses: [Business])
-}
-
-extension DataSentDelegate {
-    
-}
-
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
@@ -254,17 +246,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var businesses:[Business] = []
     
-    var locations:[String] = ["Mount Prospect", "Rolling Meadows", "Arlington Heights", "Wheeling", "Palatine", "Schaumburg", "Prospect Heights", "Buffalo Grove", "South Barrington", "Elk Grove Village", "Schamburg"]
+    var locations:[String] = ["Mount Prospect", "Rolling Meadows", "Arlington Heights", "Wheeling", "Palatine", "Schaumburg", "Prospect Heights", "Buffalo Grove", "South Barrington", "Elk Grove Village"]
     var tiers:[String] = ["Tier 1", "Tier 2"]
     var tasks:[String] = ["Cleaning", "Sorting", "Stocking", "Facing", "Food Service", "Delivery", "Building", "Laundry", "Greeting", "Sales", "Packaging", "Pricing", "Recycling", "Supervision", "Food Prep"]
     var favorites:[String] = []
     
-    var delegate:DataSentDelegate? = nil
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        createBusinesses()
+        businesses = Business.createBusinessArray()
+        alphabetizeFilters()
         
         let notificationNme = NSNotification.Name("NotificationIdf")
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.reloadTableview), name: notificationNme, object: nil)
@@ -272,15 +263,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    func createBusinesses() {
-        let marriott = Business(name: "Marriott", locations: ["Schaumburg"], tiers: ["Tier 2"], tasks: ["Cleaning, Food Service, Laundry, Recycling"], addresses: ["50 N Martingale Rd."], phones: ["847-224-5631"], zips: ["60173"], logo: UIImage(named: "Marriott")!, pic1: UIImage(named: "FalseImage")!, pic2: UIImage(named: "FalseImage")!, isFavorite: false)
-        
-        businesses = [marriott]
-        
-        businesses = businesses.sorted(by: { (biz0: Business, biz1: Business) -> Bool in
-            return biz0.name < biz1.name
-        })
-        
+    func alphabetizeFilters() {
         locations = locations.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending }
         tiers = tiers.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending }
         tasks = tasks.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending }
@@ -363,7 +346,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            performSegue(withIdentifier: "showProfile", sender: self)
+            performSegue(withIdentifier: "showProfile", sender: businesses[indexPath.row])
             break
         case 1:
             performSegue(withIdentifier: "showFilteredBusinesses", sender: self)
@@ -375,7 +358,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             performSegue(withIdentifier: "showFilteredBusinesses", sender: self)
             break
         case 4:
-            performSegue(withIdentifier: "showProfile", sender: self)
+            performSegue(withIdentifier: "showProfile", sender: businesses[indexPath.row])
             break
         default:
             break
@@ -383,19 +366,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showFilteredBusinesses" {
-            if delegate != nil {
-                let filteredBusinesses:[Business] = []
-                
-                for business in businesses {
-                    
-                }
-                
-                delegate?.userDidEnterData(businesses: filteredBusinesses)
-            }
+        if segue.identifier == "showProfile" {
+            let profileVC = segue.destination as! ProfilleViewController
+            profileVC.business = sender as? Business
         }
         else {
+            let filteredBusinesVC = segue.destination as! FilteredBusinessesViewController
+            let indexPath = tableView.indexPathForSelectedRow //optional, to get from any UIButton for example
+            let currentCell = tableView.cellForRow(at: indexPath!)!
             
+            filteredBusinesVC.filteredBusinesses = Business.getFilteredBusinesses(businesses: businesses, index: segmentedControl.selectedSegmentIndex, filter: currentCell.textLabel!.text!)
         }
     }
 }

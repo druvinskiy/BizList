@@ -8,17 +8,13 @@
 
 import UIKit
 
-class FilteredBusinessesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, DataSentDelegate {
+class FilteredBusinessesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var filteredBusinesses:[Business] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-    }
-    
-    func userDidEnterData(businesses: [Business]) {
-        self.filteredBusinesses = businesses
     }
     
     override func didReceiveMemoryWarning() {
@@ -48,7 +44,7 @@ class FilteredBusinessesViewController: UIViewController, UITableViewDataSource,
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        performSegue(withIdentifier: "showProfile", sender: filteredBusinesses[indexPath.row])
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
