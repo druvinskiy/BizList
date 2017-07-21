@@ -10,9 +10,26 @@ import UIKit
 
 class FilteredBusinessesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var filteredBusinesses:[Business] = []
+    let favorite = Notification.Name(rawValue: favoriteNotificationKey)
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    func updateFavorites(notification: NSNotification) {
+        filteredBusinesses = Business.getFavorites(businesses: filteredBusinesses)
+        tableView.reloadData()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    func createObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(FilteredBusinessesViewController.updateFavorites(notification:)), name: favorite, object: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        createObservers()
         
         // Do any additional setup after loading the view.
     }
@@ -48,6 +65,7 @@ class FilteredBusinessesViewController: UIViewController, UITableViewDataSource,
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        let profileVC = segue.destination as! ProfilleViewController
+        profileVC.business = sender as? Business
     }
 }

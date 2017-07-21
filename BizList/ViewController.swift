@@ -239,6 +239,8 @@ import UIKit
  "60004",
  "60173"]*/
 
+let favoriteNotificationKey = "favoriteKey"
+
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
@@ -249,16 +251,30 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var locations:[String] = ["Mount Prospect", "Rolling Meadows", "Arlington Heights", "Wheeling", "Palatine", "Schaumburg", "Prospect Heights", "Buffalo Grove", "South Barrington", "Elk Grove Village"]
     var tiers:[String] = ["Tier 1", "Tier 2"]
     var tasks:[String] = ["Cleaning", "Sorting", "Stocking", "Facing", "Food Service", "Delivery", "Building", "Laundry", "Greeting", "Sales", "Packaging", "Pricing", "Recycling", "Supervision", "Food Prep"]
-    var favorites:[String] = []
+    var favorites:[Business] = []
+    
+    let favorite = Notification.Name(rawValue: favoriteNotificationKey)
+    
+    func updateFavorites(notification: NSNotification) {
+        favorites = Business.getFavorites(businesses: businesses)
+        tableView.reloadData()
+    }
+    
+    deinit {
+         NotificationCenter.default.removeObserver(self)
+    }
+    
+    func createObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.updateFavorites(notification:)), name: favorite, object: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         businesses = Business.createBusinessArray()
+        favorites = Business.getFavorites(businesses: businesses)
         alphabetizeFilters()
-        
-        let notificationNme = NSNotification.Name("NotificationIdf")
-        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.reloadTableview), name: notificationNme, object: nil)
+        createObservers()
         
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -271,9 +287,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBAction func segmentedControlActionChanged(sender: AnyObject) {
         tableView.reloadData()
-    }
-    
-    func reloadTableview() {
     }
     
     override func didReceiveMemoryWarning() {
@@ -308,7 +321,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             cell.textLabel?.text = tasks[indexPath.row]
             break
         case 4:
-            cell.textLabel?.text = favorites[indexPath.row]
+            cell.textLabel?.text = favorites[indexPath.row].name
             break
         default:
             break
@@ -367,15 +380,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showProfile" {
+            //let nav = segue.destination as! UINavigationController
             let profileVC = segue.destination as! ProfilleViewController
+            
             profileVC.business = sender as? Business
         }
         else {
             let filteredBusinesVC = segue.destination as! FilteredBusinessesViewController
-            let indexPath = tableView.indexPathForSelectedRow //optional, to get from any UIButton for example
+            let indexPath = tableView.indexPathForSelectedRow
             let currentCell = tableView.cellForRow(at: indexPath!)!
             
             filteredBusinesVC.filteredBusinesses = Business.getFilteredBusinesses(businesses: businesses, index: segmentedControl.selectedSegmentIndex, filter: currentCell.textLabel!.text!)
         }
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }

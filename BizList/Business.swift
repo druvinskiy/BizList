@@ -91,6 +91,18 @@ class Business: NSObject {
         return filteredBusinesses
     }
     
+    class func getFavorites(businesses: [Business]) -> [Business] {
+        var favorites:[Business] = []
+        
+        for business in businesses {
+            if business.isFavorite {
+                favorites.append(business)
+            }
+        }
+        
+        return favorites
+    }
+    
     func createPic1(business: Business) -> UIImage {
         var image = #imageLiteral(resourceName: "FalseImage")
         

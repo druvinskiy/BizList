@@ -11,7 +11,6 @@ import UIKit
 class ProfilleViewController: UIViewController {
 
     @IBOutlet weak var bizLogo: UIImageView!
-    @IBOutlet weak var bizNameLabel: UILabel!
     @IBOutlet weak var addressTextView: UITextView!
     @IBOutlet weak var indTextView: UITextView!
     @IBOutlet weak var tasksTextView: UITextView!
@@ -25,23 +24,17 @@ class ProfilleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = business?.name
+        
+        bizLogo.layer.cornerRadius = bizLogo.frame.size.width/2
+        bizLogo.clipsToBounds = true
+        
+        //self.view.backgroundColor = UIColor(red:0.76, green:0.04, blue:0.20, alpha:1.0)
         
         setUI()
     }
     
-    func saveFavorites() {
-        let notificationNme = NSNotification.Name("NotificationIdf")
-        NotificationCenter.default.post(name: notificationNme, object: nil)
-        
-        let defaults = UserDefaults.standard
-        //let token = favorites
-        
-        //defaults.set(token, forKey: "MyKey")
-        defaults.synchronize()
-    }
-    
     func setUI() {
-        bizNameLabel.text = business?.name
         imageOne.image = business?.createPic1(business: business!)
         imageTwo.image = business?.createPic2(business: business!)
         addressTextView.text = business?.createAddresses(business: business!)
@@ -66,6 +59,8 @@ class ProfilleViewController: UIViewController {
     @IBAction func onFavoriteButtonTapped(_ sender: UIButton) {
         business?.isFavorite = !(business?.isFavorite)!
         setFavoriteButton()
-        saveFavorites()
+        
+        let name = Notification.Name(rawValue: favoriteNotificationKey)
+        NotificationCenter.default.post(name: name, object: nil)
     }
 }
