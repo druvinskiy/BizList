@@ -9,10 +9,13 @@
 import UIKit
 
 class FilteredBusinessesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    var filteredBusinesses:[Business] = []
-    let favorite = Notification.Name(rawValue: favoriteNotificationKey)
     
     @IBOutlet weak var tableView: UITableView!
+    
+    var filteredBusinesses:[Business] = []
+    var filter = ""
+    
+    let favorite = Notification.Name(rawValue: favoriteNotificationKey)
     
     func updateFavorites(notification: NSNotification) {
         filteredBusinesses = Business.getFavorites(businesses: filteredBusinesses)
@@ -30,6 +33,7 @@ class FilteredBusinessesViewController: UIViewController, UITableViewDataSource,
     override func viewDidLoad() {
         super.viewDidLoad()
         createObservers()
+        self.title = filter
         
         // Do any additional setup after loading the view.
     }
@@ -40,18 +44,18 @@ class FilteredBusinessesViewController: UIViewController, UITableViewDataSource,
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! MainPageCell
         
         if (indexPath.row % 2 == 0) {
             cell.backgroundColor = UIColor(red: 0.0549, green: 0.25098, blue:  0.5804, alpha: 1)
-            cell.textLabel?.textColor = UIColor.white
         }
         else if (indexPath.row % 2 != 0) {
             cell.backgroundColor = UIColor(red:0.00, green:0.47, blue:0.32, alpha:1.0)
-            cell.textLabel?.textColor = UIColor.white
         }
         
-        cell.textLabel?.text = filteredBusinesses[indexPath.row].name
+        cell.label.text = filteredBusinesses[indexPath.row].name
+        cell.label.textColor = UIColor.white
+        cell.logoImageView.image = filteredBusinesses[indexPath.row].logo
         
         return cell
     }

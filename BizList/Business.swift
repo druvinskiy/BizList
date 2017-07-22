@@ -50,7 +50,31 @@ class Business: NSObject {
                                 pic2: #imageLiteral(resourceName: "FalseImage"),
                                 isFavorite: false)
         
-        businesses.append(marriott)
+        let ikea = Business(name: "IKEA",
+                            locations: ["Schaumburg"],
+                            tiers: ["Tier 1"],
+                            tasks: "Cleaning, Sorting, Stocking, Food Service, Building, Facing, Recycling",
+                            addresses: ["1800 East McConnor Pkwy"],
+                            phones: ["888-888-4532"],
+                            zips: ["60173"],
+                            logo: #imageLiteral(resourceName: "IKEA"),
+                            pic1: #imageLiteral(resourceName: "IKEA Pic 1"),
+                            pic2: #imageLiteral(resourceName: "IKEA Pic 2"),
+                            isFavorite: false)
+        
+        let walgreens = Business(name: "Walgreens",
+                                 locations: ["Arlington Heights", "Arlington Heights", "Prospect Heights", "Buffalo Grove", "Wheeling"],
+                                 tiers: ["Tier 2"],
+                                 tasks: "Cleaning, Stocking, Sales",
+                                 addresses: ["1711 W. Campbell St.", "3 E. Golf Rd.", "1 N. Elmhurst Rd.", "15 N. Buffalo Grove Rd.", "1199 W. Dundee Rd."],
+                                 phones: ["847-520-7220", "847-398-4673", "847-465-8682", "847-577-7099", "847-593-6650"],
+                                 zips: ["60005", "60005", "60070", "60089", "60090"],
+                                 logo: #imageLiteral(resourceName: "Walgreens"),
+                                 pic1: #imageLiteral(resourceName: "Walgreens Pic 1"),
+                                 pic2: #imageLiteral(resourceName: "Walgreens Pic 2"),
+                                 isFavorite: false)
+        
+        businesses = [marriott, ikea, walgreens]
         
         return businesses.sorted(by: { (biz0: Business, biz1: Business) -> Bool in
             return biz0.name < biz1.name

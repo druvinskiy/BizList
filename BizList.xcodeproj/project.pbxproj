@@ -17,6 +17,8 @@
 		B8BC3EBE1F04418D00186FF5 /* BizListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BC3EBD1F04418D00186FF5 /* BizListUITests.swift */; };
 		B8BC3ECC1F044B5800186FF5 /* FilteredBusinessesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BC3ECB1F044B5800186FF5 /* FilteredBusinessesViewController.swift */; };
 		B8BC3ECE1F0466D500186FF5 /* ProfilleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BC3ECD1F0466D500186FF5 /* ProfilleViewController.swift */; };
+		B8CA33A91F22A86200DA4480 /* MainPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CA33A81F22A86200DA4480 /* MainPageCell.swift */; };
+		B8CA33AD1F22FC0B00DA4480 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CA33AC1F22FC0A00DA4480 /* ProfileCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		B8BC3EBF1F04418D00186FF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8BC3ECB1F044B5800186FF5 /* FilteredBusinessesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilteredBusinessesViewController.swift; sourceTree = "<group>"; };
 		B8BC3ECD1F0466D500186FF5 /* ProfilleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilleViewController.swift; sourceTree = "<group>"; };
+		B8CA33A81F22A86200DA4480 /* MainPageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageCell.swift; sourceTree = "<group>"; };
+		B8CA33AC1F22FC0A00DA4480 /* ProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +112,8 @@
 				B8BC3ECB1F044B5800186FF5 /* FilteredBusinessesViewController.swift */,
 				B8BC3ECD1F0466D500186FF5 /* ProfilleViewController.swift */,
 				B86D83761F1F01FA00C880F3 /* Business.swift */,
+				B8CA33A81F22A86200DA4480 /* MainPageCell.swift */,
+				B8CA33AC1F22FC0A00DA4480 /* ProfileCell.swift */,
 				B8BC3EA11F04418D00186FF5 /* Main.storyboard */,
 				B8BC3EA41F04418D00186FF5 /* Assets.xcassets */,
 				B8BC3EA61F04418D00186FF5 /* LaunchScreen.storyboard */,
@@ -273,7 +279,9 @@
 				B8BC3ECC1F044B5800186FF5 /* FilteredBusinessesViewController.swift in Sources */,
 				B8BC3E9E1F04418D00186FF5 /* AppDelegate.swift in Sources */,
 				B86D83771F1F01FA00C880F3 /* Business.swift in Sources */,
+				B8CA33AD1F22FC0B00DA4480 /* ProfileCell.swift in Sources */,
 				B8BC3ECE1F0466D500186FF5 /* ProfilleViewController.swift in Sources */,
+				B8CA33A91F22A86200DA4480 /* MainPageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

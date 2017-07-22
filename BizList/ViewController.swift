@@ -245,7 +245,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
-    
+    @IBOutlet weak var constraint: NSLayoutConstraint!
     var businesses:[Business] = []
     
     var locations:[String] = ["Mount Prospect", "Rolling Meadows", "Arlington Heights", "Wheeling", "Palatine", "Schaumburg", "Prospect Heights", "Buffalo Grove", "South Barrington", "Elk Grove Village"]
@@ -296,32 +296,57 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         tableView.backgroundColor = UIColor(red: 0.93333, green: 0.93333, blue: 0.93333, alpha: 1)
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! MainPageCell
         
         if (indexPath.row % 2 == 0) {
             cell.backgroundColor = UIColor(red: 0.0549, green: 0.25098, blue:  0.5804, alpha: 1)
-            cell.textLabel?.textColor = UIColor.white
         }
         else if (indexPath.row % 2 != 0) {
             cell.backgroundColor = UIColor(red:0.00, green:0.47, blue:0.32, alpha:1.0)
-            cell.textLabel?.textColor = UIColor.white
         }
+        
+        cell.label.textColor = UIColor.white
+        
+        let constantWithImage = CGFloat(12)
+        let constantWithoutImage = CGFloat(-130)
+        
+        let rowHeightWithImage = CGFloat(90)
+        let rowHeightWitoutImage = CGFloat(44)
         
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            cell.textLabel?.text = businesses[indexPath.row].name
+            cell.label.text = businesses[indexPath.row].name
+            cell.logoImageView.isHidden = false
+            cell.logoImageView.image = businesses[indexPath.row].logo
+            cell.constraint.constant = constantWithImage
+            tableView.rowHeight = rowHeightWithImage
             break
         case 1:
-            cell.textLabel?.text = locations[indexPath.row]
+            cell.label.text = locations[indexPath.row]
+            cell.logoImageView.isHidden = true
+            cell.constraint.constant = constantWithoutImage
+            tableView.rowHeight = rowHeightWitoutImage
+            
             break
         case 2:
-            cell.textLabel?.text = tiers[indexPath.row]
+            cell.label.text = tiers[indexPath.row]
+            cell.logoImageView.isHidden = true
+            cell.constraint.constant = constantWithoutImage
+            tableView.rowHeight = rowHeightWitoutImage
             break
         case 3:
-            cell.textLabel?.text = tasks[indexPath.row]
+            cell.label.text = tasks[indexPath.row]
+            cell.logoImageView.isHidden = true
+            cell.constraint.constant = constantWithoutImage
+            tableView.rowHeight = rowHeightWitoutImage
             break
         case 4:
             cell.textLabel?.text = favorites[indexPath.row].name
+            cell.logoImageView.isHidden = false
+            cell.logoImageView.image = businesses[indexPath.row].logo
+            cell.constraint.constant = constantWithImage
+            tableView.rowHeight = rowHeightWithImage
             break
         default:
             break
@@ -388,9 +413,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         else {
             let filteredBusinesVC = segue.destination as! FilteredBusinessesViewController
             let indexPath = tableView.indexPathForSelectedRow
-            let currentCell = tableView.cellForRow(at: indexPath!)!
+            let currentCell = tableView.cellForRow(at: indexPath!) as! MainPageCell
             
-            filteredBusinesVC.filteredBusinesses = Business.getFilteredBusinesses(businesses: businesses, index: segmentedControl.selectedSegmentIndex, filter: currentCell.textLabel!.text!)
+            filteredBusinesVC.filteredBusinesses = Business.getFilteredBusinesses(businesses: businesses, index: segmentedControl.selectedSegmentIndex, filter: currentCell.label.text!)
+            filteredBusinesVC.filter = currentCell.label.text!
         }
     }
     
