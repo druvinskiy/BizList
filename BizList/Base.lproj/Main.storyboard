@@ -101,7 +101,7 @@
                         <outlet property="segmentedControl" destination="IoO-rT-xFx" id="Iir-eJ-wNi"/>
                         <outlet property="tableView" destination="jUf-ZC-Ra8" id="amd-Wh-htC"/>
                         <segue destination="Omr-ur-aah" kind="show" identifier="showFilteredBusinesses" id="QlN-ff-Nzb"/>
-                        <segue destination="oAQ-BU-Bke" kind="show" identifier="showProfile" id="9Yi-nC-OEf"/>
+                        <segue destination="oAQ-BU-Bke" kind="show" identifier="showProfile" id="MGN-gF-fyt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z0b-ej-pAk" sceneMemberID="firstResponder"/>
@@ -203,7 +203,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="PRc-pm-W9a" id="ctU-oF-YGC"/>
-                        <segue destination="oAQ-BU-Bke" kind="show" identifier="showProfile" id="lb1-fy-fMP"/>
+                        <segue destination="oAQ-BU-Bke" kind="show" identifier="showProfile" id="GMq-Rm-h0w"/>
                     </connections>
                 </viewController>
             </objects>
@@ -260,11 +260,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Imi-Jr-7oe" firstAttribute="leading" secondItem="Sli-GZ-Gdd" secondAttribute="leading" id="5Ii-fW-dA5"/>
+                            <constraint firstItem="tL3-fJ-xc1" firstAttribute="top" secondItem="Imi-Jr-7oe" secondAttribute="bottom" id="aDi-qF-R91"/>
                             <constraint firstItem="Imi-Jr-7oe" firstAttribute="top" secondItem="Sli-GZ-Gdd" secondAttribute="top" id="cQC-tG-vuV"/>
-                            <constraint firstItem="tL3-fJ-xc1" firstAttribute="top" secondItem="Imi-Jr-7oe" secondAttribute="bottom" id="cyL-iM-EW9"/>
                             <constraint firstAttribute="trailing" secondItem="Imi-Jr-7oe" secondAttribute="trailing" id="fLD-Rc-FpX"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="aQz-cq-4zP">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="t1n-EK-GwJ"/>
+                        <barButtonItem key="rightBarButtonItem" title="Options" id="OfN-UH-Qmv"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Imi-Jr-7oe" id="MnT-15-QKl"/>
                     </connections>
@@ -392,6 +396,6 @@
         <image name="Favorite Button" width="136" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lb1-fy-fMP"/>
+        <segue reference="GMq-Rm-h0w"/>
     </inferredMetricsTieBreakers>
 </document>
