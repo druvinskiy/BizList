@@ -19,7 +19,8 @@ class FilteredBusinessesViewController: UIViewController, UITableViewDataSource,
     
     func updateFavorites(notification: NSNotification) {
         filteredBusinesses = Business.getFavorites(businesses: filteredBusinesses)
-        tableView.reloadData()
+        print(filteredBusinesses)
+        //tableView.reloadData()
     }
     
     deinit {
@@ -44,7 +45,7 @@ class FilteredBusinessesViewController: UIViewController, UITableViewDataSource,
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! MainPageCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! FilterCell
         
         if (indexPath.row % 2 == 0) {
             cell.backgroundColor = UIColor(red: 0.0549, green: 0.25098, blue:  0.5804, alpha: 1)
@@ -56,6 +57,12 @@ class FilteredBusinessesViewController: UIViewController, UITableViewDataSource,
         cell.label.text = filteredBusinesses[indexPath.row].name
         cell.label.textColor = UIColor.white
         cell.logoImageView.image = filteredBusinesses[indexPath.row].logo
+        
+        let constantWithImage = CGFloat(12)
+        let rowHeightWithImage = CGFloat(90)
+        
+        cell.constraint.constant = constantWithImage
+        tableView.rowHeight = rowHeightWithImage
         
         return cell
     }

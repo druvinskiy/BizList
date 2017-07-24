@@ -272,7 +272,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         
         businesses = Business.createBusinessArray()
-        favorites = Business.getFavorites(businesses: businesses)
+        //favorites = Business.getFavorites(businesses: businesses)
         alphabetizeFilters()
         createObservers()
         
@@ -315,38 +315,37 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let rowHeightWitoutImage = CGFloat(44)
         
         switch segmentedControl.selectedSegmentIndex {
-        case 0:
-            cell.label.text = businesses[indexPath.row].name
+        case 0, 4:
+            if segmentedControl.selectedSegmentIndex == 0 {
+                cell.label.text = businesses[indexPath.row].name
+                cell.logoImageView.image = businesses[indexPath.row].logo
+            }
+            else {
+                cell.label.text = favorites[indexPath.row].name
+                cell.logoImageView.image = favorites[indexPath.row].logo
+            }
+            
             cell.logoImageView.isHidden = false
-            cell.logoImageView.image = businesses[indexPath.row].logo
             cell.constraint.constant = constantWithImage
             tableView.rowHeight = rowHeightWithImage
+            
             break
-        case 1:
-            cell.label.text = locations[indexPath.row]
+        case 1, 2, 3:
+            if segmentedControl.selectedSegmentIndex == 1 {
+                cell.label.text = locations[indexPath.row]
+            }
+            else if segmentedControl.selectedSegmentIndex == 2 {
+                cell.label.text = tiers[indexPath.row]
+            }
+            else {
+                cell.label.text = tasks[indexPath.row]
+            }
+            
+            
             cell.logoImageView.isHidden = true
             cell.constraint.constant = constantWithoutImage
             tableView.rowHeight = rowHeightWitoutImage
             
-            break
-        case 2:
-            cell.label.text = tiers[indexPath.row]
-            cell.logoImageView.isHidden = true
-            cell.constraint.constant = constantWithoutImage
-            tableView.rowHeight = rowHeightWitoutImage
-            break
-        case 3:
-            cell.label.text = tasks[indexPath.row]
-            cell.logoImageView.isHidden = true
-            cell.constraint.constant = constantWithoutImage
-            tableView.rowHeight = rowHeightWitoutImage
-            break
-        case 4:
-            cell.textLabel?.text = favorites[indexPath.row].name
-            cell.logoImageView.isHidden = false
-            cell.logoImageView.image = businesses[indexPath.row].logo
-            cell.constraint.constant = constantWithImage
-            tableView.rowHeight = rowHeightWithImage
             break
         default:
             break
@@ -373,6 +372,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             break
         case 4:
             returnValue = favorites.count
+            print(returnValue)
             break
         default:
             break
@@ -396,7 +396,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             performSegue(withIdentifier: "showFilteredBusinesses", sender: self)
             break
         case 4:
-            performSegue(withIdentifier: "showProfile", sender: businesses[indexPath.row])
+            performSegue(withIdentifier: "showProfile", sender: favorites[indexPath.row])
             break
         default:
             break

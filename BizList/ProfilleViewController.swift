@@ -13,60 +13,127 @@ class ProfilleViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var tableView: UITableView!
     
     var business: Business?
-    //var profileInfo:[String] = ["Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, Lorem ipsum dolor sit amet.., comes from a line in section 1.10.32."]
     
-    struct Objects {
-        var sectionName: String
-        var sectionObjects: [String]!
-    }
-    
-    var objectsArray =  [Objects]()
+    let sectionTitles: [String] = ["Locations", "Tasks"]
+    var alertController: UIAlertController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = business?.name
         
-        tableView.estimatedRowHeight = 100
-        tableView.rowHeight = UITableViewAutomaticDimension
         tableView.tableFooterView = UIView(frame: .zero)
         
-        createObjects()
+        createActionSheet()
     }
     
-    func createObjects() {
-        var displayArray:[String] = []
+    func createActionSheet() {
+        alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        alertController.addAction(createFavoriteAction())
         
-        for index in 0..<business!.locations.count {
-            let address = business?.createAddress(business: business!, index: index)
-            let phone = business?.createPhoneNumber(business: business!, index: index)
-            let tier = business?.createTier(business: business!, index: index)
-            
-            displayArray.append("\n\(address!)\(phone!)\(tier!)\n")
+        if business?.pic1 != #imageLiteral(resourceName: "FalseImage") || business?.pic2 != #imageLiteral(resourceName: "FalseImage") {
+            alertController.addAction(createPhotosAction())
+        }
+    }
+    
+    func createFavoriteAction() -> UIAlertAction {
+        var favoriteTitle = ""
+        var favoriteStyle = UIAlertActionStyle.destructive
+        
+        if (!(self.business?.isFavorite)!) {
+            favoriteTitle = "Add to Favorites"
+            favoriteStyle = .default
+        }
+        else {
+            favoriteTitle = "Remove from Favorites"
+            favoriteStyle = .destructive
         }
         
-        objectsArray = [Objects(sectionName: "Locations", sectionObjects: displayArray),
-                        Objects(sectionName: "Tasks", sectionObjects: [(business?.tasks)!])]
-     }
+        let favoriteAction = UIAlertAction(title: favoriteTitle, style: favoriteStyle) { (action) in
+            self.business?.isFavorite = !(self.business?.isFavorite)!
+            
+            let name = Notification.Name(rawValue: favoriteNotificationKey)
+            NotificationCenter.default.post(name: name, object: nil)
+            
+            self.createActionSheet()
+        }
+        
+        return favoriteAction
+    }
+    
+    func createPhotosAction() -> UIAlertAction {
+        let photosAction = UIAlertAction(title: "View Photos", style: .default) { (action) in
+            self.performSegue(withIdentifier: "showPictures", sender: self)
+        }
+        
+        return photosAction
+    }
+    
+    @IBAction func optionsButtonPressed(_ sender: UIBarButtonItem) {
+        alertController.popoverPresentationController?.barButtonItem = sender
+        self.present(alertController, animated: false, completion: nil)
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier:  "cell") as! ProfileCell
         
-        cell.infoLabel.text = objectsArray[indexPath.section].sectionObjects[indexPath.row]
+        if indexPath.section == 0 {
+            cell.addressInfoLabel.text = business?.createAddress(business: business!, index: indexPath.row)
+            cell.phoneInfoLabel.text = business?.phones[indexPath.row]
+            cell.tierInfoLabel.text = business?.tiers[indexPath.row]
+            
+            /*if (indexPath.row % 2 == 0) {
+                cell.backgroundColor = UIColor(red:1.00, green:0.40, blue:0.40, alpha:1.0)
+            }
+            else if (indexPath.row % 2 != 0) {
+                cell.backgroundColor = UIColor(red:1.00, green:1.00, blue:0.85, alpha:1.0)
+            }*/
+        }
+        else {
+            cell.constraint.constant = -87
+            
+            cell.phoneInfoLabel.isHidden = true
+            cell.tierInfoLabel.isHidden = true
+            
+            cell.addressLabel.isHidden = true
+            cell.phoneLabel.isHidden = true
+            cell.tierLabel.isHidden = true
+            
+            cell.addressInfoLabel.text = business?.tasks
+            
+        }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objectsArray[section].sectionObjects.count
+        if section == 0 {
+            return (business?.locations.count)!
+        }
+        else {
+            return 1
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-         return objectsArray.count
+         return sectionTitles.count
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return objectsArray[section].sectionName
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = UIColor.white
+        
+        let label = UILabel()
+        label.text = sectionTitles[section]
+        label.font = label.font.withSize(19)
+        label.frame = CGRect(x: 12, y: 0, width: 100, height: 35)
+        view.addSubview(label)
+        
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
@@ -77,22 +144,8 @@ class ProfilleViewController: UIViewController, UITableViewDataSource, UITableVi
         return false
     }
     
-    /*func setFavoriteButton() {
-        if !(business?.isFavorite)! {
-            favButt.setImage(UIImage(named: "Favorite Button"), for: UIControlState.normal)
-            favButt.setImage(UIImage(named: "Favorite Depressed"), for: UIControlState.highlighted)
-        }
-        else {
-            favButt.setImage(UIImage(named: "Unfavorite Button"), for: UIControlState.normal)
-            favButt.setImage(UIImage(named: "Unfavorite Depressed"), for: UIControlState.highlighted)
-        }
-    }*/
- 
-    @IBAction func onFavoriteButtonTapped(_ sender: UIButton) {
-        business?.isFavorite = !(business?.isFavorite)!
-        //setFavoriteButton()
-        
-        let name = Notification.Name(rawValue: favoriteNotificationKey)
-        NotificationCenter.default.post(name: name, object: nil)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let picturesVC = segue.destination as! PicturesViewController
+        picturesVC.bussiness = business
     }
 }

@@ -40,7 +40,7 @@ class Business: NSObject {
         
         let marriott = Business(name: "Marriott",
                                 locations: ["Schaumburg"],
-                                tiers: ["2"],
+                                tiers: ["Tier 2"],
                                 tasks: "Cleaning, Food Service, Laundry, Recycling",
                                 addresses: ["50 N Martingale Rd."],
                                 phones: ["847-224-5631"],
@@ -52,7 +52,7 @@ class Business: NSObject {
         
         let ikea = Business(name: "IKEA",
                             locations: ["Schaumburg"],
-                            tiers: ["1"],
+                            tiers: ["Tier 1"],
                             tasks: "Cleaning, Sorting, Stocking, Food Service, Building, Facing, Recycling",
                             addresses: ["1800 East McConnor Pkwy"],
                             phones: ["888-888-4532"],
@@ -64,7 +64,7 @@ class Business: NSObject {
         
         let walgreens = Business(name: "Walgreens",
                                  locations: ["Arlington Heights", "Arlington Heights", "Prospect Heights", "Buffalo Grove", "Wheeling"],
-                                 tiers: ["2", "2", "2", "2", "2"],
+                                 tiers: ["Tier 2", "Tier 2", "Tier 2", "Tier 2", "Tier 2"],
                                  tasks: "Cleaning, Stocking, Sales",
                                  addresses: ["1711 W. Campbell St.", "3 E. Golf Rd.", "1 N. Elmhurst Rd.", "15 N. Buffalo Grove Rd.", "1199 W. Dundee Rd."],
                                  phones: ["847-520-7220", "847-398-4673", "847-465-8682", "847-577-7099", "847-593-6650"],
@@ -148,15 +148,19 @@ class Business: NSObject {
     }
     
     func createAddress(business: Business, index: Int) -> String {
-        let address = business.addresses[index]
-        let city = business.locations[index]
-        let zip = business.zips[index]
+        //var addresses:[String] = []
         
-        return "Address: \(address), \(city), IL \(zip)\n\n"
+        //for index in 0..<business.locations.count {
+            let address = business.addresses[index]
+            let city = business.locations[index]
+            let zip = business.zips[index]
+        //}
+        
+        return "\(address), \(city), IL \(zip)"
     }
     
-    func createPhoneNumber(business: Business, index: Int) -> String {
-        return "Phone Number: \(business.phones[index])\n\n"
+    /*func createPhoneNumber(business: Business) -> [String] {
+        return "\(business.phones[index])"
     }
     
     func createTier(business: Business, index: Int) -> String {
@@ -165,5 +169,5 @@ class Business: NSObject {
     
     func createTasks(business: Business) -> String {
         return "\(business.tasks)"
-    }
+    }*/
 }

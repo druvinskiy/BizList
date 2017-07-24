@@ -21,6 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().barStyle = .black
         
+        let defaults = UserDefaults.standard
+        let defaultValue = ["MyKey" : ""]
+        defaults.register(defaults: defaultValue)
+        
         return true
     }
 
