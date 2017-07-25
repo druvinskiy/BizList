@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Business: NSObject {
+class Business: NSObject, NSCoding {
     let name: String
     let locations: [String]
     let tiers: [String]
@@ -33,6 +33,34 @@ class Business: NSObject {
         self.pic1 = pic1
         self.pic2 = pic2
         self.isFavorite = isFavorite
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.name = (aDecoder.decodeObject(forKey: "name") as? String)!
+        self.locations = (aDecoder.decodeObject(forKey: "locations") as? [String])!
+        self.tiers = (aDecoder.decodeObject(forKey: "tiers") as? [String])!
+        self.tasks = (aDecoder.decodeObject(forKey: "tasks") as? String)!
+        self.addresses = (aDecoder.decodeObject(forKey: "addresses") as? [String])!
+        self.phones = (aDecoder.decodeObject(forKey: "phones") as? [String])!
+        self.zips = (aDecoder.decodeObject(forKey: "zips") as? [String])!
+        self.logo = (aDecoder.decodeObject(forKey: "logo") as? UIImage)!
+        self.pic1 = (aDecoder.decodeObject(forKey: "pic1") as? UIImage)!
+        self.pic2 = (aDecoder.decodeObject(forKey: "pic2") as? UIImage)!
+        self.isFavorite = (aDecoder.decodeBool(forKey: "isFavorite"))
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.name, forKey: "name");
+        aCoder.encode(self.locations, forKey: "locations");
+        aCoder.encode(self.tiers, forKey: "tiers");
+        aCoder.encode(self.tasks, forKey: "tasks");
+        aCoder.encode(self.addresses, forKey: "addresses");
+        aCoder.encode(self.phones, forKey: "phones");
+        aCoder.encode(self.zips, forKey: "zips");
+        aCoder.encode(self.logo, forKey: "logo");
+        aCoder.encode(self.pic1, forKey: "pic1");
+        aCoder.encode(self.pic2, forKey: "pic2");
+        aCoder.encode(self.isFavorite, forKey: "isFavorite");
     }
     
     class func createBusinessArray() -> [Business] {
@@ -127,10 +155,10 @@ class Business: NSObject {
         return favorites
     }
     
-    func createPic1(business: Business) -> UIImage {
+    /*func createPic1(business: Business) -> UIImage {
         var image = #imageLiteral(resourceName: "FalseImage")
         
-        if business.pic1 != nil {
+        if self.pic1 != nil {
             image = business.pic1!
         }
         
@@ -145,15 +173,15 @@ class Business: NSObject {
         }
         
         return image
-    }
+    }*/
     
-    func createAddress(business: Business, index: Int) -> String {
+    func createAddress(index: Int) -> String {
         //var addresses:[String] = []
         
         //for index in 0..<business.locations.count {
-            let address = business.addresses[index]
-            let city = business.locations[index]
-            let zip = business.zips[index]
+            let address = self.addresses[index]
+            let city = self.locations[index]
+            let zip = self.zips[index]
         //}
         
         return "\(address), \(city), IL \(zip)"

@@ -55,6 +55,19 @@ class ProfilleViewController: UIViewController, UITableViewDataSource, UITableVi
             let name = Notification.Name(rawValue: favoriteNotificationKey)
             NotificationCenter.default.post(name: name, object: nil)
             
+            if let data = UserDefaults.standard.object(forKey: "bussiness") as? NSData {
+                let bussinessArray = NSKeyedUnarchiver.unarchiveObject(with: data as Data) as! [Business]
+                
+                for savedBiz in bussinessArray {
+                    if savedBiz.name == self.business?.name {
+                        savedBiz.isFavorite = (self.business?.isFavorite)!
+                    }
+                }
+                
+                let data = NSKeyedArchiver.archivedData(withRootObject: bussinessArray)
+                UserDefaults.standard.set(data, forKey: "bussiness")
+            }
+            
             self.createActionSheet()
         }
         
@@ -78,7 +91,7 @@ class ProfilleViewController: UIViewController, UITableViewDataSource, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier:  "cell") as! ProfileCell
         
         if indexPath.section == 0 {
-            cell.addressInfoLabel.text = business?.createAddress(business: business!, index: indexPath.row)
+            cell.addressInfoLabel.text = business?.createAddress(index: indexPath.row)
             cell.phoneInfoLabel.text = business?.phones[indexPath.row]
             cell.tierInfoLabel.text = business?.tiers[indexPath.row]
             

@@ -257,6 +257,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func updateFavorites(notification: NSNotification) {
         favorites = Business.getFavorites(businesses: businesses)
+        
         tableView.reloadData()
     }
     
@@ -271,8 +272,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        businesses = Business.createBusinessArray()
-        //favorites = Business.getFavorites(businesses: businesses)
+        if let data = UserDefaults.standard.object(forKey: "bussiness") as? NSData {
+            let bussinessArray = NSKeyedUnarchiver.unarchiveObject(with: data as Data)
+            businesses = bussinessArray as! [Business]
+            favorites = Business.getFavorites(businesses: businesses)
+        }
+        else {
+            businesses = Business.createBusinessArray()
+            
+            let data = NSKeyedArchiver.archivedData(withRootObject: businesses)
+            UserDefaults.standard.set(data, forKey: "bussiness")
+        }
+        
         alphabetizeFilters()
         createObservers()
         
@@ -372,7 +383,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             break
         case 4:
             returnValue = favorites.count
-            print(returnValue)
             break
         default:
             break

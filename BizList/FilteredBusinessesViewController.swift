@@ -19,8 +19,6 @@ class FilteredBusinessesViewController: UIViewController, UITableViewDataSource,
     
     func updateFavorites(notification: NSNotification) {
         filteredBusinesses = Business.getFavorites(businesses: filteredBusinesses)
-        print(filteredBusinesses)
-        //tableView.reloadData()
     }
     
     deinit {
