@@ -14,7 +14,7 @@ class ProfilleViewController: UIViewController, UITableViewDataSource, UITableVi
     
     var business: Business?
     
-    let sectionTitles: [String] = ["Locations", "Tasks"]
+    let sectionTitles: [String] = ["Locations", "Tasks", "Categories"]
     var alertController: UIAlertController!
     
     override func viewDidLoad() {
@@ -31,7 +31,9 @@ class ProfilleViewController: UIViewController, UITableViewDataSource, UITableVi
         alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         alertController.addAction(createFavoriteAction())
         
-        if business?.pic1 != #imageLiteral(resourceName: "FalseImage") || business?.pic2 != #imageLiteral(resourceName: "FalseImage") {
+        let pics = business?.createPics()
+        
+        if pics![0] != #imageLiteral(resourceName: "FalseImage") || pics?[1] != #imageLiteral(resourceName: "FalseImage") {
             alertController.addAction(createPhotosAction())
         }
     }
@@ -58,11 +60,8 @@ class ProfilleViewController: UIViewController, UITableViewDataSource, UITableVi
             if let data = UserDefaults.standard.object(forKey: "bussiness") as? NSData {
                 let bussinessArray = NSKeyedUnarchiver.unarchiveObject(with: data as Data) as! [Business]
                 
-                for savedBiz in bussinessArray {
-                    if savedBiz.name == self.business?.name {
-                        savedBiz.isFavorite = (self.business?.isFavorite)!
-                    }
-                }
+                let index = bussinessArray.index(of: self.business!)
+                bussinessArray[index!].isFavorite = (self.business?.isFavorite)!
                 
                 let data = NSKeyedArchiver.archivedData(withRootObject: bussinessArray)
                 UserDefaults.standard.set(data, forKey: "bussiness")
@@ -95,15 +94,16 @@ class ProfilleViewController: UIViewController, UITableViewDataSource, UITableVi
             cell.phoneInfoLabel.text = business?.phones[indexPath.row]
             cell.tierInfoLabel.text = business?.tiers[indexPath.row]
             
-            /*if (indexPath.row % 2 == 0) {
-                cell.backgroundColor = UIColor(red:1.00, green:0.40, blue:0.40, alpha:1.0)
+            if (indexPath.row % 2 == 0) {
+                cell.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0)
             }
             else if (indexPath.row % 2 != 0) {
-                cell.backgroundColor = UIColor(red:1.00, green:1.00, blue:0.85, alpha:1.0)
-            }*/
+                cell.backgroundColor = UIColor(red:0.88, green:0.88, blue:0.88, alpha:1.0)
+            }
         }
         else {
             cell.constraint.constant = -87
+            tableView.rowHeight = 44
             
             cell.phoneInfoLabel.isHidden = true
             cell.tierInfoLabel.isHidden = true
@@ -112,7 +112,12 @@ class ProfilleViewController: UIViewController, UITableViewDataSource, UITableVi
             cell.phoneLabel.isHidden = true
             cell.tierLabel.isHidden = true
             
-            cell.addressInfoLabel.text = business?.tasks
+            if indexPath.section == 1 {
+                cell.addressInfoLabel.text = business?.tasks
+            }
+            else {
+                cell.addressInfoLabel.text = business?.categories
+            }
             
         }
         
@@ -129,16 +134,17 @@ class ProfilleViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-         return sectionTitles.count
+        return sectionTitles.count
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
-        view.backgroundColor = UIColor.white
+        view.backgroundColor = UIColor(red:0.26, green:0.26, blue:0.26, alpha:1.0)
         
         let label = UILabel()
         label.text = sectionTitles[section]
-        label.font = label.font.withSize(19)
+        label.font = UIFont(name: "Quattrocento", size: 20)
+        label.textColor = UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0)
         label.frame = CGRect(x: 12, y: 0, width: 100, height: 35)
         view.addSubview(label)
         

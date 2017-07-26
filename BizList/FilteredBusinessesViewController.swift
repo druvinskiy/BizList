@@ -44,17 +44,19 @@ class FilteredBusinessesViewController: UIViewController, UITableViewDataSource,
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! FilterCell
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
         
         if (indexPath.row % 2 == 0) {
-            cell.backgroundColor = UIColor(red: 0.0549, green: 0.25098, blue:  0.5804, alpha: 1)
+            cell.backgroundColor = UIColor(red:0.73, green:0.87, blue:0.98, alpha:1.0)
+            cell.label.textColor = UIColor(red:0.08, green:0.40, blue:0.75, alpha:1.0)
         }
         else if (indexPath.row % 2 != 0) {
-            cell.backgroundColor = UIColor(red:0.00, green:0.47, blue:0.32, alpha:1.0)
+            cell.backgroundColor = UIColor(red:0.86, green:0.93, blue:0.78, alpha:1.0)
+            cell.label.textColor = UIColor(red:0.33, green:0.55, blue:0.18, alpha:1.0)
         }
         
         cell.label.text = filteredBusinesses[indexPath.row].name
-        cell.label.textColor = UIColor.white
-        cell.logoImageView.image = filteredBusinesses[indexPath.row].logo
+        cell.logoImageView.image = UIImage(named: "\(filteredBusinesses[indexPath.row].name)")
         
         let constantWithImage = CGFloat(12)
         let rowHeightWithImage = CGFloat(90)
