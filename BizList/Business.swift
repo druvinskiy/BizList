@@ -69,13 +69,13 @@ class Business: NSObject, NSCoding {
         
         let cpk = Business(name: "California Pizza Kitchen", locations: ["Schaumburg", "Arlington Heights"], tiers: ["Tier 1", "Tier 1"], tasks: "Cleaning, Food Service, Customer Service. Sorting, Stocking", addresses: ["1550 E. Golf Rd", "3 S. Evergreen Ave"], phones: ["847-413-9200", "847-590-0801"], zips: ["60173", "60005"], categories: "Restaurant")
         
-        let rollingMeadowsLibrary = Business(name: "Rolling Meadows Library", locations: ["Rolling Meadows"], tiers: ["Tier 1"], tasks: "Cleaning, Sorting, Stocking, Delivery", addresses: ["3110 Martin Ln"], phones: ["847-259-6050"], zips: ["6008"], categories:"Recreation")
+        let rollingMeadowsLibrary = Business(name: "Rolling Meadows Library", locations: ["Rolling Meadows"], tiers: ["Tier 1"], tasks: "Cleaning, Sorting, Stocking, Delivery", addresses: ["3110 Martin Ln"], phones: ["847-259-6050"], zips: ["60008"], categories:"Recreation")
         
         let willowCreekFoodPantry = Business(name: "Willow Creek Food Pantry", locations: ["South Barrington"], tiers: ["Tier 2"], tasks: "Cleaning, Sorting, Stocking, Packaging", addresses: ["67 E. Algonquin Rd"], phones: ["224-512-2600"], zips: ["60010"], categories: "Food Pantry")
         
         let northwestCompass = Business(name: "Northwest Compass", locations: ["Mount Prospect"], tiers: ["Tier 1"], tasks: "Cleaning, Sorting, Stocking, Packaging", addresses: ["1300 W. Northwest Hwy"], phones: ["847-392-2344"], zips: ["60056"], categories: "Food Pantry")
         
-        let fitness19 = Business(name: "Fitness 19", locations: ["Arlington Heights"], tiers: ["Tier 1"], tasks: "Cleaning", addresses: ["1601 W. Campbell St"], phones: ["847-259-1919"], zips: ["6005"], categories: "Care, Recreation")
+        let fitness19 = Business(name: "Fitness 19", locations: ["Arlington Heights"], tiers: ["Tier 1"], tasks: "Cleaning", addresses: ["1601 W. Campbell St"], phones: ["847-259-1919"], zips: ["60005"], categories: "Care, Recreation")
         
         let elkGroveBowl = Business(name: "Elk Grove Bowl", locations: ["Elk Grove Village"], tiers: ["Tier 1"], tasks: "Cleaning, Sorting, Facing", addresses: ["53 S. Arlington Heights Rd"], phones: ["847-437-3393"], zips: ["60007"], categories: "Recreation")
         
@@ -113,7 +113,7 @@ class Business: NSObject, NSCoding {
         
         let glamourSalonAndSpa = Business(name: "Glamour Salon and Spa", locations: ["Buffalo Grove"], tiers: ["Tier 1"], tasks: "Cleaning, Stocking, Sorting", addresses: ["60 W. Dundee Rd"], phones: ["847-520-2210"], zips: ["60089"], categories: "Retail")
         
-        let elkGroveParkDistrict = Business(name: "Elk Grove Park District", locations: ["Elk Grove Vilage"], tiers: ["Tier 1"], tasks: "Cleaning, Supervision, Greeting, Food Service", addresses: ["499 Biesterfield Rd"], phones: ["847-437-9494"], zips: ["60007"], categories: "Care, Recreation")
+        let elkGroveParkDistrict = Business(name: "Elk Grove Park District", locations: ["Elk Grove Vi;lage"], tiers: ["Tier 1"], tasks: "Cleaning, Supervision, Greeting, Food Service", addresses: ["499 Biesterfield Rd"], phones: ["847-437-9494"], zips: ["60007"], categories: "Care, Recreation")
         
         let kindercare = Business(name: "Kindercare", locations: ["Arlington Heights"], tiers: ["Tier 1"], tasks: "Cleaning, Supervision, Greeting, Food Service", addresses: ["1003 S. Arlington Heights Rd"], phones: ["847-593-7510"], zips: ["60005"], categories: "Care")
         
